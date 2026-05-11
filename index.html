@@ -553,6 +553,12 @@
           <a href="#equipo">Equipo</a>
           <a href="#historia">Historia de usuario</a>
           <a href="#mockups">Mockups</a>
+          <a href="#diagrama">Diagrama de clases</a>
+          <a href="#API">Diseño de la API</a>
+          <a href="#MEAN">Stack MEAN</a>
+          <a href="#angular">Angular</a>
+          <a href="#conciencia">Conciencia digital</a>
+        </div>  
         </div>
       </div>
     </div>
@@ -659,7 +665,7 @@
                 onerror="this.remove(); this.parentNode.querySelector('.placeholder').style.display='block';">
               <div class="placeholder" style="display:none;">FOTO 5</div>
             </div>
-            <strong>Nombre Apellido 5</strong>
+            <strong>Pablo Santamaría</strong>
             <small>Rol (ej. QA / Testing)</small>
           </div>
         </div>
@@ -737,6 +743,315 @@
       </div>
     </section>
 
+  <!-- DIAGRAMA CLASES -->
+  <section id="diagrama">
+      <div class="sectionTitle">
+        <h2>Diagrama de clases</h2>
+        <p>Estructura del modelo de datos y relaciones de la plataforma.</p>
+      </div>
+
+      <div class="card pad">
+        <div style="overflow-x: auto; padding: 20px; background: rgba(0, 0, 0, 0.25); border-radius: 12px;">
+          <pre class="mermaid">
+classDiagram
+    class Usuario {
+        +String fullName
+        +String email
+        +String password
+        +String role
+        +String location
+        +String bio
+        +int yearsOfExperience
+        +List sectorsOfInterest
+        +List preferredRegions
+        +List transitionPreferences
+    }
+
+    class Oportunidad {
+        +String title
+        +String sector
+        +String region
+        +String cityApprox
+        +int businessAgeYears
+        +String employeeRange
+        +String descriptionShort
+        +String descriptionExtended
+        +String transitionType
+        +String status
+        +String visibilityLevel
+    }
+
+    class SolicitudAcceso {
+        +String message
+        +String status
+    }
+
+    class Conversacion {
+        +boolean isActive
+    }
+
+    class Mensaje {
+        +String content
+        +DateTime sentAt
+        +DateTime readAt
+    }
+
+    class Documento {
+        +String title
+        +String description
+        +String documentType
+        +String fileUrl
+        +String visibility
+    }
+
+    class Transicion {
+        +String currentStage
+        +String notes
+    }
+
+    %% Relaciones de cardinalidad y lógica
+    Usuario "1" --> "*" Oportunidad : crea (owner)
+    Oportunidad "1" --> "*" SolicitudAcceso : recibe
+    Usuario "1" --> "*" SolicitudAcceso : solicita (interested)
+    SolicitudAcceso "1" -- "0..1" Conversacion : genera (si se acepta)
+    Conversacion "1" *-- "*" Mensaje : contiene
+    Usuario "1" --> "*" Mensaje : envía (sender)
+    Oportunidad "1" *-- "*" Documento : posee
+    Oportunidad "1" -- "*" Transicion : modela flujo
+    Usuario "1" -- "*" Transicion : participa
+          </pre>
+        </div>
+      </div>
+
+      <div class="card pad">
+        
+       
+        <div class="story">
+          <p>
+            Seguimos avanzando a paso firme en el desarrollo de <strong>Relevo</strong>. Tras definir los mockups iniciales y las historias de usuario, en este Sprint nos hemos centrado en los cimientos técnicos de la plataforma: <strong>la arquitectura de datos y nuestro diagrama de clases</strong>.
+          </p>
+          
+          <p>
+            Para un proyecto donde la confidencialidad y la transición por fases son la propuesta de valor principal, tener un modelo de dominio robusto no es solo un requisito técnico, es una necesidad de negocio. Aquí os explicamos cómo hemos estructurado el "cerebro" de Relevo.
+          </p>
+
+          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">1. Los Pilares: Usuarios y Oportunidades</h4>
+          <p style="margin-bottom: 10px;">En el centro de nuestro ecosistema tenemos dos entidades principales que se buscan entre sí:</p>
+          <ul style="margin-top: 0; padding-left: 20px;">
+            <li style="margin-bottom: 8px;"><strong>Usuario:</strong> No queríamos modelos separados para "Propietarios" y "Sucesores", ya que un usuario podría tener ambos roles en el futuro. Nuestro modelo unificado maneja las preferencias de transición, sectores e historial.</li>
+            <li><strong>Oportunidad:</strong> Representa el negocio en traspaso. Un detalle clave es el atributo <code>cityApprox</code>. Como Relevo prioriza el anonimato inicial, no exponemos la dirección real, solo una zona, protegiendo al negocio de rumores.</li>
+          </ul>
+
+          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">2. Privacidad por Diseño: El Muro de Confianza</h4>
+          <p>
+            ¿Cómo evitamos que los curiosos vean información sensible? A través de la clase <strong>SolicitudAcceso</strong>. Un usuario interesado no puede ver los detalles financieros ni chatear directamente. Primero debe enviar una solicitud. Esta entidad intermedia actúa como nuestro "portero": solo cuando el propietario evalúa el perfil y acepta, se abren los canales de comunicación.
+          </p>
+
+          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">3. La Negociación: Comunicación y VDR</h4>
+          <p style="margin-bottom: 10px;">Una vez superado el muro de confianza, entran en juego las entidades operativas:</p>
+          <ul style="margin-top: 0; padding-left: 20px;">
+            <li style="margin-bottom: 8px;"><strong>Conversación y Mensaje:</strong> Canal directo y seguro entre el propietario y el sucesor, totalmente desvinculado de redes públicas.</li>
+            <li><strong>Documento:</strong> Gracias al atributo <code>visibility</code>, el sistema sabe qué archivos son públicos (ej. un resumen ciego del sector) y cuáles requieren un NDA firmado para ser desbloqueados.</li>
+          </ul>
+
+          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">4. Orquestando el Flujo: La Transición</h4>
+          <p>
+            Un traspaso no es un evento de un solo clic, es un proceso de meses. Para ello hemos creado la clase <strong>Transicion</strong>. Esta entidad modela el ciclo de vida del expediente, registrando si estamos en fase de contacto, auditoría (due diligence), o cierre legal.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+
+  <!-- DISEÑO API -->
+      <section id="API" style="margin-top: 34px;">
+      <div class="card pad">
+        
+        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
+          Diseñando una API RESTful blindada
+        </h3>
+        
+        <div class="story">
+          <p>
+            Con nuestro modelo de dominio ya definido, el siguiente gran reto era exponer esos datos de forma segura, estructurada y predecible. Esta semana, el equipo backend se ha centrado en construir la capa de enrutamiento y seguridad de Relevo usando <strong>Node.js y Express</strong>.
+          </p>
+          
+          <p>
+            No queríamos una API caótica. Necesitábamos un "contrato" claro para que el equipo de Frontend (Web y Mobile) pudiera trabajar en paralelo sin bloqueos. Así es como lo hemos diseñado:
+          </p>
+
+          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">1. Rutas Predecibles y OpenAPI (Swagger)</h4>
+          <p style="margin-bottom: 10px;">Hemos adoptado una arquitectura estrictamente orientada a recursos (REST). Toda nuestra API cuelga de <code>/api/v1/...</code> y utiliza los verbos HTTP de manual (GET, POST, PUT, DELETE). Pero lo más importante es que <strong>la API se documenta sola</strong>.</p>
+          <p>
+            Gracias a la integración de <code>swagger-jsdoc</code> y OpenAPI 3.0, cada endpoint tiene su esquema y respuestas esperadas estandarizadas (como nuestros formatos <code>NotFound</code> o <code>ServerError</code>). Si el equipo Frontend necesita saber cómo crear una oferta, solo tiene que ir a <code>/docs</code> y ver el esquema exacto y qué campos son obligatorios.
+          </p>
+
+          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">2. Seguridad Granular: Más allá del Rol</h4>
+          <p>En Relevo, la confidencialidad lo es todo. Nuestro middleware de autenticación <code>auth.ts</code> va mucho más allá de verificar un token JWT. Hemos implementado <strong>Autorización a Nivel de Recurso</strong>.</p>
+          <ul style="margin-top: 0; padding-left: 20px;">
+            <li style="margin-bottom: 8px;">No basta con ser un usuario autenticado para editar una oferta; nuestro middleware <code>authorizeOfertaOwnerOrAdmin</code> realiza una consulta para verificar que tú eres el propietario exacto de ese registro en la base de datos.</li>
+            <li>Lo mismo ocurre con las negociaciones: <code>authorizeChatParticipant</code> asegura que absolutamente nadie (salvo el propietario, el interesado o un admin) pueda acceder al hilo de mensajes de un chat confidencial.</li>
+          </ul>
+
+          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">3. Preparados para la Omnicanalidad (Web + App)</h4>
+          <p>
+            Sabemos que nuestros usuarios usarán tanto la web como la app móvil. Por eso, hemos configurado un middleware CORS inteligente que permite peticiones desde nuestros dominios web y desde entornos dinámicos (como Flutter Web). Además, todo el tráfico pasa por validadores de esquema antes de tocar los controladores, evitando que datos corruptos lleguen a nuestra base de datos.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Stack MEAN -->
+    <section id="MEAN" style="margin-top: 34px;">
+      <div class="card pad">
+        
+        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
+          Evaluación tecnológica: ¿Por qué el Stack MEAN es nuestro aliado perfecto?
+        </h3>
+        
+        <div class="story">
+          <p>
+            Para aquellos que siguen de cerca el desarrollo de <strong>Relevo</strong> y quieren conocer a fondo las tripas del proyecto, hoy queremos hacer una pequeña pausa para explicar el núcleo de nuestra arquitectura: el <strong>Stack MEAN</strong>.
+          </p>
+          
+          <p>
+            En el desarrollo web, un "stack" es la combinación de tecnologías que usamos para construir una aplicación completa. MEAN es un conjunto de herramientas de código abierto basadas íntegramente en JavaScript/TypeScript. Su nombre proviene de las cuatro tecnologías principales que lo componen:
+          </p>
+
+          <ul style="margin-top: 16px; padding-left: 20px;">
+            <li style="margin-bottom: 12px;"><strong>M — MongoDB:</strong> Nuestro sistema de base de datos. A diferencia de las bases tradicionales (SQL) que usan tablas rígidas, MongoDB es NoSQL y guarda la información en un formato flexible (similar a JSON). Ideal para los diferentes tipos de negocios en Relevo.</li>
+            <li style="margin-bottom: 12px;"><strong>E — Express.js:</strong> El framework de nuestro servidor. Es ligero, rapidísimo y se encarga de gestionar todas las rutas y peticiones HTTP de nuestra API de forma estructurada.</li>
+            <li style="margin-bottom: 12px;"><strong>A — Angular:</strong> El cerebro de nuestra interfaz (Frontend). Mantenido por Google, este framework nos permite crear una aplicación web dinámica (SPA) para que la navegación por los activos y chats sea fluida y sin recargas de página.</li>
+            <li><strong>N — Node.js:</strong> El motor que hace todo esto posible en el servidor. Permite que JavaScript, que antes solo vivía en los navegadores, pueda ejecutarse en el lado del servidor, manejando miles de conexiones simultáneas.</li>
+          </ul>
+
+          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">Las grandes ventajas de este ecosistema</h4>
+          
+          <p style="margin-bottom: 10px;">Apostar por MEAN nos aporta beneficios directos en el desarrollo:</p>
+          <ul style="margin-top: 0; padding-left: 20px;">
+            <li style="margin-bottom: 8px;"><strong>Un solo idioma:</strong> Todo el equipo habla TypeScript. Usamos el mismo lenguaje en la base de datos, en el servidor y en la pantalla del usuario.</li>
+            <li style="margin-bottom: 8px;"><strong>El formato universal:</strong> Los datos viajan de principio a fin en formato JSON, sin necesidad de transformaciones pesadas.</li>
+            <li><strong>Alto rendimiento:</strong> Su naturaleza asíncrona es perfecta para gestionar nuestro sistema de notificaciones y el chat confidencial en tiempo real.</li>
+          </ul>
+
+          <blockquote style="margin-top: 24px; border-left-color: #EF4444;">
+            <strong style="color: var(--text);">En resumen:</strong> El stack MEAN nos permite ser ágiles, mantener un código coherente en todas las capas del proyecto y asegurar que Relevo pueda escalar sin cuellos de botella técnicos.
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Angular -->
+    <section id="angular" style="margin-top: 34px;">
+      <div class="card pad">
+        
+        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
+          Elección Front-End: ¿Por qué Angular es nuestra apuesta segura?
+        </h3>
+        
+        <div class="story">
+          <p>
+            Tras consolidar nuestro backend con el stack MEAN, necesitábamos un motor para la interfaz. En lugar de armar un rompecabezas uniendo decenas de librerías distintas, decidimos apostar por un framework robusto y completo.
+          </p>
+
+          <div class="pill" style="margin-top: 20px; margin-bottom: 24px;">
+            <span style="border-color: rgba(221, 0, 49, 0.5); color: #FFB3C1; background: rgba(221, 0, 49, 0.08);">Angular 17+</span>
+            <span>TypeScript</span>
+            <span>RxJS</span>
+            <span>Standalone Components</span>
+          </div>
+          
+          <div class="stats" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 26px;">
+            
+            <div class="stat">
+              <div class="tagOk">
+                <span class="check" style="border-color: #DD0031; background: rgba(221,0,49,0.18);"></span> 
+                "Batteries Included"
+              </div>
+              <strong style="margin-top: 10px;">Todo integrado de serie</strong>
+              <small>No dependemos de librerías de terceros para lo esencial. Incluye enrutamiento potente, gestión de formularios complejos y cliente HTTP seguro.</small>
+            </div>
+
+            <div class="stat">
+              <div class="tagOk">
+                <span class="check" style="border-color: #DD0031; background: rgba(221,0,49,0.18);"></span> 
+                Tipado Fuerte
+              </div>
+              <strong style="margin-top: 10px;">Arquitectura TypeScript</strong>
+              <small>El código es autodocumentado. Al compartir interfaces con nuestro backend en Node.js, atrapamos los errores antes de compilar.</small>
+            </div>
+
+            <div class="stat">
+              <div class="tagOk">
+                <span class="check" style="border-color: #DD0031; background: rgba(221,0,49,0.18);"></span> 
+                Reactividad
+              </div>
+              <strong style="margin-top: 10px;">RxJS y Tiempo Real</strong>
+              <small>El chat confidencial y las notificaciones fluyen como observables. La interfaz responde sin bloqueos ni cuellos de botella.</small>
+            </div>
+
+          </div>
+
+          <blockquote style="margin-top: 0; border-left-color: #DD0031;">
+            <strong style="color: var(--text);">En Relevo construimos una plataforma empresarial. La estructura "opinionated" (con reglas claras) de Angular garantiza que el código escale a largo plazo de forma ordenada y predecible.
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conciencia Digital -->
+    <section id="conciencia" style="margin-top: 34px;">
+      <div class="card pad">
+        
+        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
+          Conciencia Digital: Nuestra propuesta para un ecosistema ético
+        </h3>
+        
+        <div class="story">
+          <p>
+            En Relevo no solo escribimos código; diseñamos soluciones para personas reales. Nuestro proyecto une a dos generaciones muy distintas: propietarios experimentados (baby boomers) y jóvenes emprendedores (millennials y Gen Z). Para que esta conexión funcione, la tecnología no puede ser una barrera.
+          </p>
+          <p>
+            Por ello, hemos integrado en el núcleo del proyecto nuestra <strong>Propuesta de Conciencia Digital</strong>, basada en tres pilares fundamentales:
+          </p>
+
+          <div class="stats" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 24px; margin-bottom: 26px;">
+            
+            <div class="stat">
+              <div class="tagOk" style="color: #34D399;">
+                <span class="check" style="border-color: #10B981; background: rgba(16, 185, 129, 0.18);"></span> 
+                Inclusión (UX)
+              </div>
+              <strong style="margin-top: 10px;">Cero Brecha Digital</strong>
+              <small>Interfaces limpias, tipografías legibles y procesos guiados paso a paso para que usuarios senior (como Joan) puedan publicar su negocio sin frustración ni ayuda externa.</small>
+            </div>
+
+            <div class="stat">
+              <div class="tagOk" style="color: #34D399;">
+                <span class="check" style="border-color: #10B981; background: rgba(16, 185, 129, 0.18);"></span> 
+                Ética de Datos
+              </div>
+              <strong style="margin-top: 10px;">Soberanía y Transparencia</strong>
+              <small>No usamos "dark patterns". El usuario sabe exactamente qué datos se comparten y cuándo. Incluimos <em>nudges</em> (avisos) educativos sobre cómo censurar datos sensibles en documentos.</small>
+            </div>
+
+            <div class="stat">
+              <div class="tagOk" style="color: #34D399;">
+                <span class="check" style="border-color: #10B981; background: rgba(16, 185, 129, 0.18);"></span> 
+                Sostenibilidad
+              </div>
+              <strong style="margin-top: 10px;">Green Web & Paperless</strong>
+              <small>Fomentamos el uso de NDAs digitales y Virtual Data Rooms para eliminar el papeleo físico. A nivel técnico, usamos modo oscuro y carga perezosa para reducir el consumo energético.</small>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       © <span id="year"></span> Relevo — Proyecto universitario (presentación). Diseñado para mostrar concepto, equipo y
       prototipos.
@@ -784,6 +1099,15 @@
     lb.addEventListener("click", (e) => { if (e.target === lb) closeLightbox(); });
     window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
   </script>
-</body>
 
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+      startOnLoad: true, 
+      theme: 'dark',
+      fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif'
+    });
+  </script>
 </html>
+
+</body>
