@@ -4,31 +4,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0B0F1A" />
-  <title>Relevo — Presentación del Proyecto</title>
+  <meta name="theme-color" content="#060813" />
+  <title>Relevo — Presentació del Projecte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <style>
     :root {
-      --bg0: #070A12;
-      --bg1: #0B0F1A;
-      --card: rgba(255, 255, 255, .06);
-      --card2: rgba(255, 255, 255, .08);
-      --border: rgba(255, 255, 255, .10);
-      --text: #EAF0FF;
-      --muted: rgba(234, 240, 255, .72);
-      --muted2: rgba(234, 240, 255, .58);
-      --brand: #7C3AED;
-      /* violeta */
-      --brand2: #22D3EE;
-      /* cian */
-      --ok: #34D399;
-      --shadow: 0 18px 60px rgba(0, 0, 0, .55);
-      --radius: 18px;
-      --radius2: 28px;
-      --max: 1120px;
+      --bg0: #05070F;
+      --bg1: #0A0D1A;
+      --bg2: #101426;
+      --card: rgba(255, 255, 255, .03);
+      --card-hover: rgba(255, 255, 255, .06);
+      --border: rgba(255, 255, 255, .08);
+      --border-hover: rgba(255, 255, 255, .18);
+      --text: #F1F5F9;
+      --muted: #94A3B8;
+      --muted2: #64748B;
+      --brand: #8B5CF6;
+      --brand-glow: rgba(139, 92, 246, 0.25);
+      --brand2: #06B6D4;
+      --brand2-glow: rgba(6, 182, 212, 0.2);
+      --ok: #10B981;
+      --ok-glow: rgba(16, 185, 129, 0.15);
+      --shadow: 0 20px 50px rgba(0, 0, 0, .6);
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --max: 1160px;
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     html,
@@ -40,331 +50,409 @@
       margin: 0;
       color: var(--text);
       background:
-        radial-gradient(1200px 800px at 18% -10%, rgba(124, 58, 237, .35), transparent 60%),
-        radial-gradient(900px 700px at 85% 10%, rgba(34, 211, 238, .22), transparent 55%),
-        radial-gradient(1000px 800px at 50% 120%, rgba(124, 58, 237, .16), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1) 65%, var(--bg0));
+        radial-gradient(1200px 800px at 15% -10%, rgba(139, 92, 246, .28), transparent 60%),
+        radial-gradient(1000px 700px at 85% 15%, rgba(6, 182, 212, .18), transparent 55%),
+        radial-gradient(1200px 800px at 50% 120%, rgba(139, 92, 246, .15), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 50%, var(--bg2));
       background-attachment: fixed;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display",
-        "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji",
-        "Segoe UI Emoji";
+      font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
       overflow-x: hidden;
     }
 
     a {
-      color: inherit
+      color: inherit;
+      text-decoration: none;
     }
 
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 28px 18px 80px
+      padding: 0 24px;
     }
 
+    /* Navbar */
     .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(5, 7, 15, 0.75);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      padding: 14px 10px;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(180deg, rgba(7, 10, 18, .75), rgba(7, 10, 18, .35));
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      height: 72px;
     }
 
     .brand {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
-      font-weight: 700;
-      letter-spacing: .2px;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #FFF 40%, var(--muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: radial-gradient(18px 18px at 35% 30%, rgba(255, 255, 255, .35), transparent 60%),
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: radial-gradient(16px 16px at 30% 30%, rgba(255, 255, 255, .4), transparent 70%),
         linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 10px 30px rgba(124, 58, 237, .22);
-      border: 1px solid rgba(255, 255, 255, .18);
+      box-shadow: 0 8px 20px var(--brand-glow);
+      border: 1px solid rgba(255, 255, 255, .2);
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover .logo {
+      transform: rotate(10deg) scale(1.05);
     }
 
     .navlinks {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap
+      gap: 8px;
+      align-items: center;
     }
 
     .navlinks a {
-      text-decoration: none;
       color: var(--muted);
-      padding: 8px 10px;
+      padding: 8px 16px;
       border-radius: 999px;
+      font-weight: 500;
+      font-size: 13.5px;
+      transition: all 0.2s ease;
       border: 1px solid transparent;
-      transition: .2s ease;
-      font-size: 13px;
     }
 
     .navlinks a:hover {
       color: var(--text);
-      border-color: rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .05);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.05);
     }
 
+    @media (max-width: 900px) {
+      .navlinks {
+        display: none;
+        /* simple responsive handling */
+      }
+    }
+
+    /* Hero */
     .hero {
-      margin-top: 26px;
-      border-radius: var(--radius2);
-      border: 1px solid rgba(255, 255, 255, .10);
+      margin-top: 40px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
       background:
-        radial-gradient(800px 500px at 20% 0%, rgba(124, 58, 237, .25), transparent 60%),
-        radial-gradient(800px 500px at 80% 0%, rgba(34, 211, 238, .18), transparent 60%),
-        rgba(255, 255, 255, .04);
+        radial-gradient(800px 500px at 10% 0%, rgba(139, 92, 246, .2), transparent 70%),
+        radial-gradient(800px 500px at 90% 100%, rgba(6, 182, 212, .12), transparent 70%),
+        rgba(255, 255, 255, .01);
       box-shadow: var(--shadow);
       overflow: hidden;
       position: relative;
     }
 
     .heroInner {
-      padding: 44px 28px;
+      padding: 56px 48px;
       display: grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 22px;
+      gap: 40px;
       align-items: center;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 990px) {
       .heroInner {
         grid-template-columns: 1fr;
-        padding: 34px 18px
+        padding: 40px 24px;
       }
     }
 
     .kicker {
       display: inline-flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
-      color: var(--muted);
+      color: var(--brand-light);
       font-size: 13px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(255, 255, 255, .04);
-      padding: 8px 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      background: rgba(139, 92, 246, 0.06);
+      padding: 6px 14px;
       border-radius: 999px;
-      width: fit-content;
+      margin-bottom: 20px;
     }
 
     .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 99px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 4px rgba(124, 58, 237, .12);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand2);
+      box-shadow: 0 0 10px var(--brand2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(6, 182, 212, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+      }
     }
 
     h1 {
-      margin: 14px 0 10px;
-      font-size: clamp(34px, 4.2vw, 54px);
-      line-height: 1.02;
-      letter-spacing: -0.8px;
+      margin: 0 0 20px 0;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #FFF 30%, rgba(255, 255, 255, 0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      margin: 0 0 18px;
+      margin: 0 0 28px 0;
       color: var(--muted);
-      font-size: clamp(15px, 1.55vw, 18px);
-      line-height: 1.5;
-      max-width: 62ch;
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.6;
+      font-weight: 400;
     }
 
     .ctaRow {
       display: flex;
-      gap: 12px;
+      gap: 16px;
       flex-wrap: wrap;
-      margin-top: 18px
+      margin-bottom: 32px;
     }
 
     .btn {
       appearance: none;
-      border: 1px solid rgba(255, 255, 255, .14);
-      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .04);
       color: var(--text);
-      padding: 11px 14px;
-      border-radius: 14px;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
       font-weight: 600;
-      font-size: 14px;
+      font-size: 14.5px;
       cursor: pointer;
-      transition: .2s ease;
-      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, .09)
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .btnPrimary {
-      border-color: rgba(124, 58, 237, .35);
-      background: linear-gradient(135deg, rgba(124, 58, 237, .85), rgba(34, 211, 238, .45));
-      box-shadow: 0 14px 40px rgba(124, 58, 237, .18);
+      border-color: rgba(139, 92, 246, 0.4);
+      background: linear-gradient(135deg, var(--brand) 0%, rgba(139, 92, 246, 0.6) 100%);
+      box-shadow: 0 10px 25px var(--brand-glow);
     }
 
     .btnPrimary:hover {
-      filter: saturate(1.05) brightness(1.05)
+      background: linear-gradient(135deg, #9b6ef7 0%, rgba(139, 92, 246, 0.8) 100%);
+      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+      border-color: rgba(139, 92, 246, 0.6);
     }
 
     .pill {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-      color: var(--muted2);
-      font-size: 13px;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .pill span {
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .09);
+      padding: 6px 12px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 500;
+      transition: all 0.2s ease;
     }
 
+    .pill span:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* Stats Cards in Hero */
     .stats {
-      border: 1px solid rgba(255, 255, 255, .10);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, .04);
-      padding: 18px;
-      display: grid;
-      gap: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .stat {
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(0, 0, 0, .18);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, .2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
     }
 
-    .stat strong {
-      display: block;
-      font-size: 14px
-    }
-
-    .stat small {
-      color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.4
+    .stat:hover {
+      transform: translateX(5px);
+      border-color: var(--border-hover);
+      background: rgba(255, 255, 255, 0.02);
     }
 
     .tagOk {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: rgba(234, 240, 255, .85);
-      font-weight: 600;
-      font-size: 12px;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13.5px;
+      margin-bottom: 8px;
     }
 
     .check {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       border-radius: 6px;
-      background: rgba(52, 211, 153, .18);
-      border: 1px solid rgba(52, 211, 153, .35);
+      background: rgba(16, 185, 129, .15);
+      border: 1px solid rgba(16, 185, 129, .3);
       position: relative;
     }
 
     .check:after {
       content: "";
       position: absolute;
-      inset: 0;
-      margin: auto;
-      width: 7px;
-      height: 4px;
-      border-left: 2px solid rgba(52, 211, 153, .95);
-      border-bottom: 2px solid rgba(52, 211, 153, .95);
-      transform: rotate(-45deg);
-      top: 4px;
-      left: 4px;
+      width: 5px;
+      height: 8px;
+      border-right: 2px solid var(--ok);
+      border-bottom: 2px solid var(--ok);
+      transform: rotate(45deg);
+      top: 2px;
+      left: 5px;
     }
 
+    .stat small {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      display: block;
+    }
+
+    /* Section Styles */
     section {
-      margin-top: 34px
+      margin-top: 56px;
     }
 
     .sectionTitle {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin: 0 0 12px;
+      margin-bottom: 24px;
     }
 
     .sectionTitle h2 {
-      margin: 0;
-      font-size: 22px;
-      letter-spacing: -0.3px;
+      margin: 0 0 6px 0;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      background: linear-gradient(135deg, #FFF 50%, var(--muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .sectionTitle p {
       margin: 0;
       color: var(--muted);
-      font-size: 13.5px;
+      font-size: 15px;
     }
 
     .card {
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .04);
-      box-shadow: 0 14px 50px rgba(0, 0, 0, .35);
-      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      background: var(--card-hover);
     }
 
     .pad {
-      padding: 20px
+      padding: 32px;
     }
 
-    /* Team */
+    @media (max-width: 640px) {
+      .pad {
+        padding: 20px;
+      }
+    }
+
+    /* Team Section */
     .teamGrid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
 
     @media (max-width: 980px) {
       .teamGrid {
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
     @media (max-width: 640px) {
       .teamGrid {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     .member {
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(0, 0, 0, .18);
-      padding: 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, .15);
+      padding: 16px;
       text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 10px 20px rgba(139, 92, 246, 0.08);
+      background: rgba(255, 255, 255, 0.02);
     }
 
     .avatar {
       width: 100%;
       aspect-ratio: 1 / 1;
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: linear-gradient(135deg, rgba(124, 58, 237, .22), rgba(34, 211, 238, .14));
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(139, 92, 246, .15), rgba(6, 182, 212, .1));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -379,125 +467,417 @@
     }
 
     .avatar .placeholder {
-      color: rgba(234, 240, 255, .78);
+      color: var(--muted);
       font-weight: 700;
-      letter-spacing: .4px;
-      font-size: 12px;
+      letter-spacing: .5px;
+      font-size: 11px;
       text-transform: uppercase;
       padding: 10px;
     }
 
     .member strong {
       display: block;
-      margin-top: 10px;
-      font-size: 14px
+      margin-top: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .member small {
+      color: var(--brand-light);
+      font-size: 12px;
+      font-weight: 500;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .member span.detail {
       color: var(--muted);
-      font-size: 12.5px
+      font-size: 11px;
+      display: block;
+      margin-top: 6px;
+      line-height: 1.3;
     }
 
-    /* Story */
+    /* Story Section */
     .story {
-      color: rgba(234, 240, 255, .88);
-      line-height: 1.65;
+      color: #E2E8F0;
+      line-height: 1.7;
       font-size: 15px;
-      margin: 0;
     }
 
-    .story .muted {
-      color: var(--muted)
+    .story p {
+      margin: 0 0 16px 0;
+    }
+
+    .story p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story strong {
+      color: #FFF;
     }
 
     .story blockquote {
-      margin: 14px 0 0;
-      padding: 12px 14px;
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .10);
-      border-left: 3px solid rgba(124, 58, 237, .7);
-      border-radius: 14px;
+      margin: 20px 0 0 0;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand);
+      border-radius: var(--radius-sm);
       color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Tech Stack Redesign */
+    .techSectionGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .techSectionGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .techCard {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.01);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .techCard:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: var(--shadow);
+    }
+
+    .techCardHeader {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .techCardHeader .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .techCardHeader h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .techCardList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .techCardList li {
       font-size: 13.5px;
+      line-height: 1.4;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 8px;
+      row-gap: 4px;
+      align-items: flex-start;
+    }
+
+    .techCardList li code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--brand-light);
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      padding: 1px 5px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .techCardList.angular li code {
+      color: #FFA5B2;
+      background: rgba(221, 0, 49, 0.08);
+      border: 1px solid rgba(221, 0, 49, 0.15);
+    }
+
+    .techCardList.flutter li code {
+      color: #92E8FF;
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.15);
+    }
+
+    .techCardList li code {
+      grid-column: 2;
+      width: fit-content;
+    }
+
+    .techCardList li span.desc {
+      grid-column: 2;
+      display: block;
+      color: var(--muted);
+    }
+
+    .techBullet {
+      grid-row: 1 / span 2;
+      color: var(--brand2);
+      font-weight: bold;
+      margin-top: 1px;
+    }
+
+    /* Timeline Sprints */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin-top: 24px;
+    }
+
+    .timeline:before {
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--border) 0%, var(--brand) 30%, var(--brand2) 70%, var(--ok) 100%);
+    }
+
+    .timelineItem {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timelineItem:last-child {
+      margin-bottom: 0;
+    }
+
+    .timelineDot {
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg1);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .timelineDotInner {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--muted2);
+      transition: all 0.3s ease;
+    }
+
+    .timelineItem:hover .timelineDot {
+      border-color: var(--brand);
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+    }
+
+    .timelineItem:hover .timelineDotInner {
+      background: var(--brand-light);
+      transform: scale(1.2);
+    }
+
+    /* Active / Completed Sprint Dots */
+    .timelineItem.completed .timelineDot {
+      border-color: var(--ok);
+    }
+
+    .timelineItem.completed .timelineDotInner {
+      background: var(--ok);
+    }
+
+    .timelineItem.active .timelineDot {
+      border-color: var(--brand2);
+      animation: pulse-border 2s infinite;
+    }
+
+    .timelineItem.active .timelineDotInner {
+      background: var(--brand2);
+    }
+
+    @keyframes pulse-border {
+      0% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(6, 182, 212, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+      }
+    }
+
+    .timelineContent {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.015);
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .timelineItem:hover .timelineContent {
+      border-color: var(--border-hover);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .timelineHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .timelineHeader h4 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .timelineTag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+      text-transform: uppercase;
+    }
+
+    .timelineItem.completed .timelineTag {
+      border-color: rgba(16, 185, 129, 0.2);
+      color: var(--ok);
+      background: rgba(16, 185, 129, 0.05);
+    }
+
+    .timelineItem.active .timelineTag {
+      border-color: rgba(6, 182, 212, 0.2);
+      color: var(--brand2);
+      background: rgba(6, 182, 212, 0.05);
+    }
+
+    .timelineDetails {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .timelineCol {
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    .timelineCol h5 {
+      margin: 0 0 8px 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .timelineCol ul {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .timelineCol li {
+      margin-bottom: 6px;
     }
 
     /* Mockups */
     .mockGrid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
 
     @media (max-width: 980px) {
       .mockGrid {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 560px) {
       .mockGrid {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
       }
     }
 
     .mock {
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .03);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .01);
       overflow: hidden;
       cursor: zoom-in;
       position: relative;
       transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-      max-width: 240px;
-      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       padding: 12px;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
     }
 
     .mock:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: rgba(255, 255, 255, .20);
-      background: rgba(255, 255, 255, .06);
-      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7), 0 0 20px rgba(124, 58, 237, 0.15);
-    }
-
-    .mock:after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
-      pointer-events: none;
+      transform: translateY(-6px);
+      border-color: var(--border-hover);
+      background: rgba(255, 255, 255, .04);
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
     }
 
     .mock img {
       width: 100%;
       height: auto;
-      max-height: 420px;
       object-fit: contain;
       display: block;
       border-radius: 8px;
+      transition: transform 0.3s ease;
     }
 
     .mockLabel {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      padding: 7px 10px;
-      border-radius: 999px;
+      margin-top: 10px;
+      padding: 6px 10px;
+      border-radius: 6px;
       font-size: 12px;
-      color: rgba(234, 240, 255, .9);
-      background: rgba(0, 0, 0, .35);
-      border: 1px solid rgba(255, 255, 255, .12);
-      backdrop-filter: blur(10px);
-    }
-
-    footer {
-      margin-top: 38px;
-      color: var(--muted2);
-      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
       text-align: center;
     }
 
@@ -506,25 +886,26 @@
       position: fixed;
       inset: 0;
       display: none;
-      background: rgba(0, 0, 0, .72);
-      backdrop-filter: blur(10px);
-      z-index: 999;
-      padding: 18px;
+      background: rgba(3, 4, 9, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      padding: 24px;
       align-items: center;
       justify-content: center;
     }
 
     .lightbox.open {
-      display: flex
+      display: flex;
     }
 
     .lightboxInner {
       max-width: min(1040px, 96vw);
       max-height: 86vh;
-      border-radius: 18px;
+      border-radius: var(--radius-md);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(0, 0, 0, .35);
+      border: 1px solid var(--border);
+      background: rgba(5, 7, 15, 0.6);
       box-shadow: var(--shadow);
       position: relative;
     }
@@ -534,73 +915,59 @@
       max-width: 100%;
       max-height: 86vh;
       object-fit: contain;
-      background: rgba(0, 0, 0, .25);
     }
 
     .closeBtn {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, .14);
-      background: rgba(0, 0, 0, .35);
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, .5);
       color: var(--text);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      backdrop-filter: blur(10px);
+      font-size: 16px;
+      transition: all 0.2s ease;
     }
 
     .closeBtn:hover {
-      background: rgba(255, 255, 255, .06)
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.05);
     }
 
-    /* Technology Section */
-    .techGrid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .techStats {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    @media (max-width: 800px) {
-      .techGrid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
+    footer {
+      margin-top: 64px;
+      padding-bottom: 60px;
+      color: var(--muted2);
+      font-size: 13.5px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
     }
   </style>
 </head>
 
 <body>
   <div class="nav">
-    <div class="wrap" style="padding:0 18px;">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:14px;">
-        <div class="brand">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a href="#top" class="brand">
           <div class="logo" aria-hidden="true"></div>
-          <div>Relevo</div>
-        </div>
-        <div class="navlinks" role="navigation" aria-label="Secciones">
-          <a href="#equipo">Equipo</a>
-          <a href="#historia">Historia de usuario</a>
+          Relevo
+        </a>
+        <div class="navlinks" role="navigation" aria-label="Seccions">
+          <a href="#equipo">Equip</a>
+          <a href="#historia">Història</a>
           <a href="#mockups">Mockups</a>
-          <a href="#diagrama">Diagrama de clases</a>
-          <a href="#API">Diseño de la API</a>
-          <a href="#MEAN">Stack MEAN</a>
-          <a href="#angular">Angular</a>
-          <a href="#flutter">Flutter</a>
-          <a href="#conciencia">Conciencia digital</a>
-        </div>  
+          <a href="#diagrama">Model de Dades</a>
+          <a href="#tecnologies">Tecnologies</a>
+          <a href="#sprints">Sprints</a>
+          <a href="#conciencia">Consciència Digital</a>
         </div>
       </div>
     </div>
@@ -611,40 +978,41 @@
     <div class="hero" id="top">
       <div class="heroInner">
         <div>
-          <div class="kicker"><span class="dot"></span> Presentación del proyecto — Enginyeria d’Aplicacions</div>
+          <div class="kicker"><span class="dot"></span> Presentació del projecte — Enginyeria d’Aplicacions</div>
           <h1>Relevo</h1>
           <p class="subtitle">
-            Plataforma confidencial para estructurar la transición generacional de microempresas:
-            anuncios anónimos por zona, espacio privado de documentación y coordinación en tiempo real.
+            Plataforma confidencial per estructurar la transició generacional de microempreses:
+            anuncis anònims per zona, espai privat de documentació i coordinació en temps real.
           </p>
 
           <div class="ctaRow">
-            <a class="btn btnPrimary" href="#mockups">Ver prototipos</a>
-            <a class="btn" href="#historia">Leer historia de usuario</a>
+            <a class="btn btnPrimary" href="#mockups">Veure prototips</a>
+            <a class="btn" href="#historia">Llegir història d'ús</a>
           </div>
 
-          <div class="pill" aria-label="Tecnologías">
+          <div class="pill" aria-label="Tecnologies Principals">
+            <span>Angular 21</span>
+            <span>Flutter 3.24</span>
             <span>Node.js + Express</span>
-            <span>TypeScript</span>
-            <span>MongoDB + Mongoose</span>
-            <span>JWT</span>
-            <span>WebSockets</span>
-            <span>Docker + Nginx</span>
+            <span>MongoDB Atlas</span>
+            <span>Socket.io</span>
+            <span>Docker + AWS S3</span>
           </div>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <div class="tagOk"><span class="check"></span> Confidencialidad por fases</div>
-            <small>Listings anónimos + acceso progresivo a datos tras NDA (acuerdo de confidencialidad).</small>
+            <div class="tagOk"><span class="check"></span> Confidencialitat per fases</div>
+            <small>Listings anònims amb accés progressiu a dades sensibles només després de signar l'NDA.</small>
           </div>
           <div class="stat">
-            <div class="tagOk"><span class="check"></span> Mapa + chat con sentido</div>
-            <small>Mapa por zonas (sin dirección exacta). Chat privado por oportunidad / expediente.</small>
+            <div class="tagOk"><span class="check"></span> Cercador amb mapa cec</div>
+            <small>Ubicació aproximada per zones per evitar especulacions o pèrdua de clients en actiu.</small>
           </div>
           <div class="stat">
-            <div class="tagOk"><span class="check"></span> Tiempo real</div>
-            <small>Notificaciones instantáneas cuando hay cambios de estado, documentos nuevos o mensajes.</small>
+            <div class="tagOk"><span class="check"></span> Sincronització total</div>
+            <small>Notificacions push instantànies i xat bidireccional en temps real per agilitzar la
+              negociació.</small>
           </div>
         </div>
       </div>
@@ -653,62 +1021,68 @@
     <!-- TEAM -->
     <section id="equipo">
       <div class="sectionTitle">
-        <h2>Equipo</h2>
-        <p>5 estudiantes — — —</p>
+        <h2>Equip de Treball</h2>
+        <p>5 estudiants compromesos amb la transició empresarial.</p>
       </div>
 
       <div class="card pad">
         <div class="teamGrid">
-          <!-- Reemplaza las imágenes en assets/team/ -->
           <div class="member">
             <div class="avatar">
-              <!-- Si no hay imagen, se verá el texto -->
-              <img src="assets/team/alumno1.png" alt="Foto Alumno 1"
+              <img src="assets/team/alumno1.png" alt="Foto Pablo Casado"
                 onerror="this.remove(); this.parentNode.querySelector('.placeholder').style.display='block';">
-              <div class="placeholder" style="display:none;">FOTO 1</div>
+              <div class="placeholder" style="display:none;">PC</div>
             </div>
             <strong>Pablo Casado</strong>
-            <small>Rol (ej. Backend / DevOps)</small>
+            <small>Backend & DevOps Lead</small>
+            <span class="detail">API REST, seguretat JWT, Docker, S3 presigned URLs, logger Pino i socket.io.</span>
           </div>
 
           <div class="member">
             <div class="avatar">
-              <img src="assets/team/alumno2.png" alt="Foto Alumno 2"
+              <img src="assets/team/alumno2.png" alt="Foto Paula Tolosa"
                 onerror="this.remove(); this.parentNode.querySelector('.placeholder').style.display='block';">
-              <div class="placeholder" style="display:none;">FOTO 2</div>
+              <div class="placeholder" style="display:none;">PT</div>
             </div>
             <strong>Paula Tolosa</strong>
-            <small>Rol (ej. Frontend Web)</small>
+            <small>Frontend Web Lead</small>
+            <span class="detail">SPA en Angular 21, Signals reactius, client WebSockets, i18n, Material UI i
+              Guards.</span>
           </div>
 
           <div class="member">
             <div class="avatar">
-              <img src="assets/team/alumno3.png" alt="Foto Alumno 3"
+              <img src="assets/team/alumno3.png" alt="Foto Pol Puig"
                 onerror="this.remove(); this.parentNode.querySelector('.placeholder').style.display='block';">
-              <div class="placeholder" style="display:none;">FOTO 3</div>
+              <div class="placeholder" style="display:none;">PP</div>
             </div>
             <strong>Pol Puig</strong>
-            <small>Rol (ej. Mobile)</small>
+            <small>Mobile App Lead</small>
+            <span class="detail">App en Flutter 3.24, Riverpod, clean architecture, secure storage, i18n local i
+              skeletons.</span>
           </div>
 
           <div class="member">
             <div class="avatar">
-              <img src="assets/team/alumno4.png" alt="Foto Alumno 4"
+              <img src="assets/team/alumno4.png" alt="Foto Andrea Zapata"
                 onerror="this.remove(); this.parentNode.querySelector('.placeholder').style.display='block';">
-              <div class="placeholder" style="display:none;">FOTO 4</div>
+              <div class="placeholder" style="display:none;">AZ</div>
             </div>
             <strong>Andrea Zapata</strong>
-            <small>Rol (ej. UI/UX)</small>
+            <small>UI/UX & Product Design</small>
+            <span class="detail">Fluxos de navegació, sistema de disseny (dark/light), prototips interactius i
+              accessibilitat.</span>
           </div>
 
           <div class="member">
             <div class="avatar">
-              <img src="assets/team/alumno5.png" alt="Pablo Santamaría"
+              <img src="assets/team/alumno5.png" alt="Foto Pablo Santamaría"
                 onerror="this.remove(); this.parentNode.querySelector('.placeholder').style.display='block';">
-              <div class="placeholder" style="display:none;">FOTO 5</div>
+              <div class="placeholder" style="display:none;">PS</div>
             </div>
             <strong>Pablo Santamaría</strong>
-            <small>Rol (ej. QA / Testing)</small>
+            <small>QA & Integration Tester</small>
+            <span class="detail">Proves d'integració amb Vitest, E2E, Husky pre-commit hooks i pipelines.</span>
           </div>
         </div>
       </div>
@@ -717,8 +1091,8 @@
     <!-- USER STORY -->
     <section id="historia">
       <div class="sectionTitle">
-        <h2>Historia de usuario</h2>
-        <p>Contexto realista que justifica el proyecto.</p>
+        <h2>Història d'Usuari</h2>
+        <p>Context real que justifica i dóna sentit a la plataforma Relevo.</p>
       </div>
 
       <div class="card pad">
@@ -746,8 +1120,9 @@
         </p>
 
         <blockquote>
-          Nota: en la versión del proyecto, la ubicación se muestra por <strong>zona</strong> (no punto exacto), y los
-          datos sensibles solo se desbloquean por fases.
+          <strong>Nota de disseny:</strong> A la plataforma final, la ubicació es mostra sempre per <strong>zona
+            aproximada</strong> (mai el punt exacte en el cercador públic) per protegir la reputació del negoci, i els
+          fitxers financers confidencials estan sota una passarel·la de signatura d'NDA.
         </blockquote>
       </div>
     </section>
@@ -769,12 +1144,14 @@
 
           <div class="mock" data-full="assets/mockups/app-page-dark-real.png" aria-label="Mockup App Perfil">
             <div class="mockLabel">App · Perfil (Fosc)</div>
-            <img src="assets/mockups/app-page-dark-real.png" alt="Mockup de la pantalla del perfil del usuario en fosc" />
+            <img src="assets/mockups/app-page-dark-real.png"
+              alt="Mockup de la pantalla del perfil del usuario en fosc" />
           </div>
 
           <div class="mock" data-full="assets/mockups/app-page-light-real.png" aria-label="Mockup App Perfil Light">
             <div class="mockLabel">App · Perfil (Clar)</div>
-            <img src="assets/mockups/app-page-light-real.png" alt="Mockup de la pantalla del perfil del usuario en clar" />
+            <img src="assets/mockups/app-page-light-real.png"
+              alt="Mockup de la pantalla del perfil del usuario en clar" />
           </div>
 
           <div class="mock" data-full="assets/mockups/web-home-real.png" aria-label="Mockup Web Home">
@@ -785,8 +1162,8 @@
       </div>
     </section>
 
-  <!-- DIAGRAMA CLASES -->
-  <section id="diagrama">
+    <!-- DIAGRAMA CLASES -->
+    <section id="diagrama">
       <div class="sectionTitle">
         <h2>Diagrama de clases</h2>
         <p>Estructura del modelo de datos y relaciones de la plataforma.</p>
@@ -855,8 +1232,6 @@ classDiagram
     Usuario "1" --> "*" Oportunidad : crea (owner)
     Oportunidad "1" --> "*" SolicitudAcceso : recibe
     Usuario "1" --> "*" SolicitudAcceso : solicita (interested)
-    SolicitudAcceso "1" -- "0..1" Conversacion : genera (si se acepta)
-    Conversacion "1" *-- "*" Mensaje : contiene
     Usuario "1" --> "*" Mensaje : envía (sender)
     Oportunidad "1" *-- "*" Documento : posee
     Oportunidad "1" -- "*" Transicion : modela flujo
@@ -865,417 +1240,398 @@ classDiagram
         </div>
       </div>
 
-      <div class="card pad">
-        
-       
+      <div class="card pad" style="margin-top: 24px;">
         <div class="story">
           <p>
-            Seguimos avanzando a paso firme en el desarrollo de <strong>Relevo</strong>. Tras definir los mockups iniciales y las historias de usuario, en este Sprint nos hemos centrado en los cimientos técnicos de la plataforma: <strong>la arquitectura de datos y nuestro diagrama de clases</strong>.
+            Continuem avançant en el disseny de <strong>Relevo</strong>. Després de definir els prototips i fluxos
+            inicials, ens hem centrat en l'estructura del model de dades: la base del nostre ecosistema confidencial.
           </p>
-          
+
           <p>
-            Para un proyecto donde la confidencialidad y la transición por fases son la propuesta de valor principal, tener un modelo de dominio robusto no es solo un requisito técnico, es una necesidad de negocio. Aquí os explicamos cómo hemos estructurado el "cerebro" de Relevo.
+            Per a un projecte on la confidencialitat és la clau, tenir un model de domini flexible i robust és
+            imprescindible:
           </p>
 
-          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">1. Los Pilares: Usuarios y Oportunidades</h4>
-          <p style="margin-bottom: 10px;">En el centro de nuestro ecosistema tenemos dos entidades principales que se buscan entre sí:</p>
-          <ul style="margin-top: 0; padding-left: 20px;">
-            <li style="margin-bottom: 8px;"><strong>Usuario:</strong> No queríamos modelos separados para "Propietarios" y "Sucesores", ya que un usuario podría tener ambos roles en el futuro. Nuestro modelo unificado maneja las preferencias de transición, sectores e historial.</li>
-            <li><strong>Oportunidad:</strong> Representa el negocio en traspaso. Un detalle clave es el atributo <code>cityApprox</code>. Como Relevo prioriza el anonimato inicial, no exponemos la dirección real, solo una zona, protegiendo al negocio de rumores.</li>
-          </ul>
+          <h4
+            style="color: var(--brand2); margin: 28px 0 10px; font-size: 16.5px; text-transform: uppercase; letter-spacing: 0.5px;">
+            1. Els Pilars: Usuari Únic i Oportunitats</h4>
+          <p style="margin-bottom: 10px;">En comptes de separar físicament els rols en "Propietari" i "Successor", hem
+            optat per una entitat <code>Usuario</code> unificada que pot actuar en ambdós costats del marketplace.
+            D'altra banda, <code>Oportunidad</code> emmagatzema informació del negoci utilitzant el camp
+            <code>cityApprox</code> per ocultar adreces exactes en cerques públiques.
+          </p>
 
-          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">2. Privacidad por Diseño: El Muro de Confianza</h4>
+          <h4
+            style="color: var(--brand2); margin: 28px 0 10px; font-size: 16.5px; text-transform: uppercase; letter-spacing: 0.5px;">
+            2. Mur de Confiança: Sol·licituds d'Accés</h4>
           <p>
-            ¿Cómo evitamos que los curiosos vean información sensible? A través de la clase <strong>SolicitudAcceso</strong>. Un usuario interesado no puede ver los detalles financieros ni chatear directamente. Primero debe enviar una solicitud. Esta entidad intermedia actúa como nuestro "portero": solo cuando el propietario evalúa el perfil y acepta, se abren los canales de comunicación.
+            Un usuari interessat no pot veure les dades financeres ni xatejar directament. Ha d'enviar una
+            <code>SolicitudAcceso</code>. Fins que el propietari no l'avalua i l'accepta, no es desbloqueja el canal de
+            negociació ni la documentació.
           </p>
 
-          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">3. La Negociación: Comunicación y VDR</h4>
-          <p style="margin-bottom: 10px;">Una vez superado el muro de confianza, entran en juego las entidades operativas:</p>
-          <ul style="margin-top: 0; padding-left: 20px;">
-            <li style="margin-bottom: 8px;"><strong>Conversación y Mensaje:</strong> Canal directo y seguro entre el propietario y el sucesor, totalmente desvinculado de redes públicas.</li>
-            <li><strong>Documento:</strong> Gracias al atributo <code>visibility</code>, el sistema sabe qué archivos son públicos (ej. un resumen ciego del sector) y cuáles requieren un NDA firmado para ser desbloqueados.</li>
-          </ul>
-
-          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">4. Orquestando el Flujo: La Transición</h4>
+          <h4
+            style="color: var(--brand2); margin: 28px 0 10px; font-size: 16.5px; text-transform: uppercase; letter-spacing: 0.5px;">
+            3. Negociació i Documentació (VDR)</h4>
           <p>
-            Un traspaso no es un evento de un solo clic, es un proceso de meses. Para ello hemos creado la clase <strong>Transicion</strong>. Esta entidad modela el ciclo de vida del expediente, registrando si estamos en fase de contacto, auditoría (due diligence), o cierre legal.
+            Un cop acceptada la sol·licitud, es genera una <code>Conversacion</code>. Addicionalment, l'oferta posseeix
+            fitxers <code>Documento</code> amb nivell de visibilitat configurat: només accessibles en signar l'acord de
+            confidencialitat (NDA).
           </p>
-
         </div>
       </div>
     </section>
 
-
-  <!-- DISEÑO API -->
-      <section id="API" style="margin-top: 34px;">
-      <div class="card pad">
-        
-        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
-          Diseñando una API RESTful blindada
-        </h3>
-        
-        <div class="story">
-          <p>
-            Con nuestro modelo de dominio ya definido, el siguiente gran reto era exponer esos datos de forma segura, estructurada y predecible. Esta semana, el equipo backend se ha centrado en construir la capa de enrutamiento y seguridad de Relevo usando <strong>Node.js y Express</strong>.
-          </p>
-          
-          <p>
-            No queríamos una API caótica. Necesitábamos un "contrato" claro para que el equipo de Frontend (Web y Mobile) pudiera trabajar en paralelo sin bloqueos. Así es como lo hemos diseñado:
-          </p>
-
-          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">1. Rutas Predecibles y OpenAPI (Swagger)</h4>
-          <p style="margin-bottom: 10px;">Hemos adoptado una arquitectura estrictamente orientada a recursos (REST). Toda nuestra API cuelga de <code>/api/v1/...</code> y utiliza los verbos HTTP de manual (GET, POST, PUT, DELETE). Pero lo más importante es que <strong>la API se documenta sola</strong>.</p>
-          <p>
-            Gracias a la integración de <code>swagger-jsdoc</code> y OpenAPI 3.0, cada endpoint tiene su esquema y respuestas esperadas estandarizadas (como nuestros formatos <code>NotFound</code> o <code>ServerError</code>). Si el equipo Frontend necesita saber cómo crear una oferta, solo tiene que ir a <code>/docs</code> y ver el esquema exacto y qué campos son obligatorios.
-          </p>
-
-          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">2. Seguridad Granular: Más allá del Rol</h4>
-          <p>En Relevo, la confidencialidad lo es todo. Nuestro middleware de autenticación <code>auth.ts</code> va mucho más allá de verificar un token JWT. Hemos implementado <strong>Autorización a Nivel de Recurso</strong>.</p>
-          <ul style="margin-top: 0; padding-left: 20px;">
-            <li style="margin-bottom: 8px;">No basta con ser un usuario autenticado para editar una oferta; nuestro middleware <code>authorizeOfertaOwnerOrAdmin</code> realiza una consulta para verificar que tú eres el propietario exacto de ese registro en la base de datos.</li>
-            <li>Lo mismo ocurre con las negociaciones: <code>authorizeChatParticipant</code> asegura que absolutamente nadie (salvo el propietario, el interesado o un admin) pueda acceder al hilo de mensajes de un chat confidencial.</li>
-          </ul>
-
-          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">3. Preparados para la Omnicanalidad (Web + App)</h4>
-          <p>
-            Sabemos que nuestros usuarios usarán tanto la web como la app móvil. Por eso, hemos configurado un middleware CORS inteligente que permite peticiones desde nuestros dominios web y desde entornos dinámicos (como Flutter Web). Además, todo el tráfico pasa por validadores de esquema antes de tocar los controladores, evitando que datos corruptos lleguen a nuestra base de datos.
-          </p>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Stack MEAN -->
-    <section id="MEAN" style="margin-top: 34px;">
-      <div class="card pad">
-        
-        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
-          Evaluación tecnológica: ¿Por qué el Stack MEAN es nuestro aliado perfecto?
-        </h3>
-        
-        <div class="story">
-          <p>
-            Para aquellos que siguen de cerca el desarrollo de <strong>Relevo</strong> y quieren conocer a fondo las tripas del proyecto, hoy queremos hacer una pequeña pausa para explicar el núcleo de nuestra arquitectura: el <strong>Stack MEAN</strong>.
-          </p>
-          
-          <p>
-            En el desarrollo web, un "stack" es la combinación de tecnologías que usamos para construir una aplicación completa. MEAN es un conjunto de herramientas de código abierto basadas íntegramente en JavaScript/TypeScript. Su nombre proviene de las cuatro tecnologías principales que lo componen:
-          </p>
-
-          <ul style="margin-top: 16px; padding-left: 20px;">
-            <li style="margin-bottom: 12px;"><strong>M — MongoDB:</strong> Nuestro sistema de base de datos. A diferencia de las bases tradicionales (SQL) que usan tablas rígidas, MongoDB es NoSQL y guarda la información en un formato flexible (similar a JSON). Ideal para los diferentes tipos de negocios en Relevo.</li>
-            <li style="margin-bottom: 12px;"><strong>E — Express.js:</strong> El framework de nuestro servidor. Es ligero, rapidísimo y se encarga de gestionar todas las rutas y peticiones HTTP de nuestra API de forma estructurada.</li>
-            <li style="margin-bottom: 12px;"><strong>A — Angular:</strong> El cerebro de nuestra interfaz (Frontend). Mantenido por Google, este framework nos permite crear una aplicación web dinámica (SPA) para que la navegación por los activos y chats sea fluida y sin recargas de página.</li>
-            <li><strong>N — Node.js:</strong> El motor que hace todo esto posible en el servidor. Permite que JavaScript, que antes solo vivía en los navegadores, pueda ejecutarse en el lado del servidor, manejando miles de conexiones simultáneas.</li>
-          </ul>
-
-          <h4 style="color: var(--brand2); margin: 28px 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px;">Las grandes ventajas de este ecosistema</h4>
-          
-          <p style="margin-bottom: 10px;">Apostar por MEAN nos aporta beneficios directos en el desarrollo:</p>
-          <ul style="margin-top: 0; padding-left: 20px;">
-            <li style="margin-bottom: 8px;"><strong>Un solo idioma:</strong> Todo el equipo habla TypeScript. Usamos el mismo lenguaje en la base de datos, en el servidor y en la pantalla del usuario.</li>
-            <li style="margin-bottom: 8px;"><strong>El formato universal:</strong> Los datos viajan de principio a fin en formato JSON, sin necesidad de transformaciones pesadas.</li>
-            <li><strong>Alto rendimiento:</strong> Su naturaleza asíncrona es perfecta para gestionar nuestro sistema de notificaciones y el chat confidencial en tiempo real.</li>
-          </ul>
-
-          <blockquote style="margin-top: 24px; border-left-color: #EF4444;">
-            <strong style="color: var(--text);">En resumen:</strong> El stack MEAN nos permite ser ágiles, mantener un código coherente en todas las capas del proyecto y asegurar que Relevo pueda escalar sin cuellos de botella técnicos.
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- Angular -->
-    <section id="angular" style="margin-top: 34px;">
-      <div class="card pad">
-        
-        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
-          Elección Front-End: ¿Por qué Angular es nuestra apuesta segura?
-        </h3>
-        
-        <div class="story">
-          <p>
-            Tras consolidar nuestro backend con el stack MEAN, necesitábamos un motor para la interfaz. En lugar de armar un rompecabezas uniendo decenas de librerías distintas, decidimos apostar por un framework robusto y completo.
-          </p>
-
-          <div class="pill" style="margin-top: 20px; margin-bottom: 24px;">
-            <span style="border-color: rgba(221, 0, 49, 0.5); color: #FFB3C1; background: rgba(221, 0, 49, 0.08);">Angular 17+</span>
-            <span>TypeScript</span>
-            <span>RxJS</span>
-            <span>Standalone Components</span>
-          </div>
-          
-          <div class="stats" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 26px;">
-            
-            <div class="stat">
-              <div class="tagOk">
-                <span class="check" style="border-color: #DD0031; background: rgba(221,0,49,0.18);"></span> 
-                "Batteries Included"
-              </div>
-              <strong style="margin-top: 10px;">Todo integrado de serie</strong>
-              <small>No dependemos de librerías de terceros para lo esencial. Incluye enrutamiento potente, gestión de formularios complejos y cliente HTTP seguro.</small>
-            </div>
-
-            <div class="stat">
-              <div class="tagOk">
-                <span class="check" style="border-color: #DD0031; background: rgba(221,0,49,0.18);"></span> 
-                Tipado Fuerte
-              </div>
-              <strong style="margin-top: 10px;">Arquitectura TypeScript</strong>
-              <small>El código es autodocumentado. Al compartir interfaces con nuestro backend en Node.js, atrapamos los errores antes de compilar.</small>
-            </div>
-
-            <div class="stat">
-              <div class="tagOk">
-                <span class="check" style="border-color: #DD0031; background: rgba(221,0,49,0.18);"></span> 
-                Reactividad
-              </div>
-              <strong style="margin-top: 10px;">RxJS y Tiempo Real</strong>
-              <small>El chat confidencial y las notificaciones fluyen como observables. La interfaz responde sin bloqueos ni cuellos de botella.</small>
-            </div>
-
-          </div>
-
-          <blockquote style="margin-top: 0; border-left-color: #DD0031;">
-            <strong style="color: var(--text);">En Relevo construimos una plataforma empresarial. La estructura "opinionated" (con reglas claras) de Angular garantiza que el código escale a largo plazo de forma ordenada y predecible.
-          </blockquote>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Flutter -->
-    <section id="flutter" style="margin-top: 34px;">
-      <div class="card pad">
-        
-        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
-          Desarrollo Mobile: ¿Por qué Flutter es nuestra elección para la App?
-        </h3>
-        
-        <div class="story">
-          <p>
-            Para llevar Relevo al bolsillo de nuestros usuarios, necesitábamos una tecnología que no sacrificara el rendimiento por la velocidad de desarrollo. Tras evaluar varias opciones, <strong>Flutter</strong> se convirtió en el candidato indiscutible.
-          </p>
-    
-          <div class="pill" style="margin-top: 20px; margin-bottom: 24px;">
-            <span style="border-color: rgba(34, 211, 238, 0.5); color: #22D3EE; background: rgba(34, 211, 238, 0.08);">Flutter 3.24+</span>
-            <span>Dart</span>
-            <span>Riverpod</span>
-            <span>Go_Router</span>
-            <span>Clean Architecture</span>
-          </div>
-          
-          <div class="stats" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 26px;">
-            
-            <div class="stat">
-              <div class="tagOk">
-                <span class="check" style="border-color: #027DFD; background: rgba(2,125,253,0.18);"></span> 
-                Multiplataforma Real
-              </div>
-              <strong style="margin-top: 10px;">Un solo código, dos sistemas</strong>
-              <small>Compilamos nativamente para iOS y Android compartiendo el 100% de la lógica de negocio, lo que nos permite iterar el doble de rápido sin perder rendimiento.</small>
-            </div>
-    
-            <div class="stat">
-              <div class="tagOk">
-                <span class="check" style="border-color: #027DFD; background: rgba(2,125,253,0.18);"></span> 
-                Estado Reactivo
-              </div>
-              <strong style="margin-top: 10px;">Riverpod & Sincronización</strong>
-              <small>Gestionamos el flujo de datos de forma unidireccional y segura. Las notificaciones de nuevas ofertas y mensajes del chat se reflejan al instante en la UI.</small>
-            </div>
-    
-            <div class="stat">
-              <div class="tagOk">
-                <span class="check" style="border-color: #027DFD; background: rgba(2,125,253,0.18);"></span> 
-                UI Consistente
-              </div>
-              <strong style="margin-top: 10px;">Motor Gráfico Propio</strong>
-              <small>Gracias al motor Skia/Impeller, garantizamos que el diseño premium de Relevo se vea idéntico y fluido (60-120fps) en cualquier gama de teléfono móvil.</small>
-            </div>
-    
-          </div>
-    
-          <blockquote style="margin-top: 0; border-left-color: #027DFD;">
-            <strong style="color: var(--text);">Flutter nos permite ofrecer una experiencia de usuario fluida y "pixel-perfect", esencial para transmitir la confianza y seriedad que requiere una plataforma de traspaso de negocios.
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- Conciencia Digital -->
-    <section id="conciencia" style="margin-top: 34px;">
-      <div class="card pad">
-        
-        <h3 style="margin: 0 0 16px; font-size: 24px; color: var(--text); letter-spacing: -0.5px;">
-          Conciencia Digital: Nuestra propuesta para un ecosistema ético
-        </h3>
-        
-        <div class="story">
-          <p>
-            En Relevo no solo escribimos código; diseñamos soluciones para personas reales. Nuestro proyecto une a dos generaciones muy distintas: propietarios experimentados (baby boomers) y jóvenes emprendedores (millennials y Gen Z). Para que esta conexión funcione, la tecnología no puede ser una barrera.
-          </p>
-          <p>
-            Por ello, hemos integrado en el núcleo del proyecto nuestra <strong>Propuesta de Conciencia Digital</strong>, basada en tres pilares fundamentales:
-          </p>
-
-          <div class="stats" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 24px; margin-bottom: 26px;">
-            
-            <div class="stat">
-              <div class="tagOk" style="color: #34D399;">
-                <span class="check" style="border-color: #10B981; background: rgba(16, 185, 129, 0.18);"></span> 
-                Inclusión (UX)
-              </div>
-              <strong style="margin-top: 10px;">Cero Brecha Digital</strong>
-              <small>Interfaces limpias y procesos guiados para que usuarios senior puedan publicar su negocio sin frustración ni ayuda externa.</small>
-            </div>
-
-            <div class="stat">
-              <div class="tagOk" style="color: #34D399;">
-                <span class="check" style="border-color: #10B981; background: rgba(16, 185, 129, 0.18);"></span> 
-                Accesibilidad Universal
-              </div>
-              <strong style="margin-top: 10px;">Multi-idioma y Adaptabilidad</strong>
-              <small>Sistema i18n (Català, Castellano, English) y selector de Modo Fosc/Clar. La plataforma se adapta a la lengua y salud visual del usuario, no al revés.</small>
-            </div>
-
-            <div class="stat">
-              <div class="tagOk" style="color: #34D399;">
-                <span class="check" style="border-color: #10B981; background: rgba(16, 185, 129, 0.18);"></span> 
-                Ética de Datos
-              </div>
-              <strong style="margin-top: 10px;">Soberanía y Transparencia</strong>
-              <small>No usamos "dark patterns". El usuario sabe qué datos comparte. Incluimos avisos educativos sobre cómo censurar datos sensibles.</small>
-            </div>
-
-            <div class="stat">
-              <div class="tagOk" style="color: #34D399;">
-                <span class="check" style="border-color: #10B981; background: rgba(16, 185, 129, 0.18);"></span> 
-                Sostenibilidad
-              </div>
-              <strong style="margin-top: 10px;">Green Web & Paperless</strong>
-              <small>Fomentamos el uso de NDAs digitales para eliminar el papel. A nivel técnico, optimizamos la carga para reducir el consumo energético.</small>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Roadmap / Sprints -->
-    <section id="sprints" style="margin-top: 50px; margin-bottom: 60px;">
+    <!-- TECNOLOGIES -->
+    <section id="tecnologies">
       <div class="sectionTitle">
-        <h2>Histórico de Sprints</h2>
-        <p>Evolución técnica y funcionalidades implementadas.</p>
+        <h2>Pila Tecnològica Completa</h2>
+        <p>Desenvolupament modern, segur i multiplataforma analitzat directament del codi.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-        
+      <div class="techSectionGrid">
+        <!-- Backend -->
+        <div class="techCard">
+          <div class="techCardHeader">
+            <div class="icon" style="background: rgba(139, 92, 246, 0.1); color: var(--brand);">N</div>
+            <h3>Backend REST API</h3>
+          </div>
+          <ul class="techCardList">
+            <li><span class="techBullet">›</span> <code>express</code> <span class="desc">RESTful API robusta i
+                middleware de rutes</span></li>
+            <li><span class="techBullet">›</span> <code>typescript</code> <span class="desc">Tipat estàtic en entorn de
+                servidor</span></li>
+            <li><span class="techBullet">›</span> <code>mongoose</code> <span class="desc">Modelat d'esquemes per a
+                MongoDB Atlas</span></li>
+            <li><span class="techBullet">›</span> <code>socket.io</code> <span class="desc">Servidor de WebSockets per
+                al xat bidireccional</span></li>
+            <li><span class="techBullet">›</span> <code>firebase-admin</code> <span class="desc">Notificacions push via
+                FCM (Firebase Cloud Messaging)</span></li>
+            <li><span class="techBullet">›</span> <code>@aws-sdk/client-s3</code> <span class="desc">Generació d'URLs
+                presignades per pujar documents</span></li>
+            <li><span class="techBullet">›</span> <code>zod</code> <span class="desc">Validació estricta d'esquemes en
+                temps d'execució</span></li>
+            <li><span class="techBullet">›</span> <code>bcryptjs</code> <span class="desc">Hash segur i xifrat de
+                contrasenyes</span></li>
+            <li><span class="techBullet">›</span> <code>pino</code> <span class="desc">Logger de consola estructurat de
+                baix consum</span></li>
+            <li><span class="techBullet">›</span> <code>swagger-ui-express</code> <span class="desc">Documentació
+                interactiva Swagger OpenAPI 3.0</span></li>
+            <li><span class="techBullet">›</span> <code>vitest</code> <span class="desc">Framework d'execució de tests
+                unitaris i d'integració</span></li>
+          </ul>
+        </div>
+
+        <!-- Frontend Web -->
+        <div class="techCard">
+          <div class="techCardHeader">
+            <div class="icon" style="background: rgba(239, 68, 68, 0.1); color: #EF4444;">A</div>
+            <h3>Frontend Web SPA</h3>
+          </div>
+          <ul class="techCardList angular">
+            <li><span class="techBullet">›</span> <code>@angular/core</code> <span class="desc">Angular 21 amb
+                reactivitat nativa via <b>Signals</b></span></li>
+            <li><span class="techBullet">›</span> <code>@angular/material</code> <span class="desc">Componentes UI
+                premium i responsive</span></li>
+            <li><span class="techBullet">›</span> <code>@ngx-translate/core</code> <span class="desc">Suport
+                multi-idioma internacional (i18n)</span></li>
+            <li><span class="techBullet">›</span> <code>socket.io-client</code> <span class="desc">Connexió al xat a
+                temps real en client web</span></li>
+            <li><span class="techBullet">›</span> <code>firebase/app</code> <span class="desc">Integració web per a
+                recepció de missatgeria FCM</span></li>
+            <li><span class="techBullet">›</span> <code>ngx-markdown</code> <span class="desc">Renderització interactiva
+                de contractes i NDAs</span></li>
+            <li><span class="techBullet">›</span> <code>rxjs</code> <span class="desc">Programació reactiva per a fluxes
+                de dades</span></li>
+            <li><span class="techBullet">›</span> <code>vitest</code> + <code>jsdom</code> <span class="desc">Entorn de
+                tests lleuger alternatiu a Karma</span></li>
+            <li><span class="techBullet">›</span> <code>prettier</code> + <code>eslint</code> <span
+                class="desc">Assegurament del format de codi en pre-commit</span></li>
+          </ul>
+        </div>
+
+        <!-- Mobile App -->
+        <div class="techCard">
+          <div class="techCardHeader">
+            <div class="icon" style="background: rgba(6, 182, 212, 0.1); color: var(--brand2);">F</div>
+            <h3>Mobile App (Flutter)</h3>
+          </div>
+          <ul class="techCardList flutter">
+            <li><span class="techBullet">›</span> <code>flutter_riverpod</code> <span class="desc">Gestió d'estat
+                reactiva i previsible</span></li>
+            <li><span class="techBullet">›</span> <code>riverpod_generator</code> <span class="desc">Codegen amb
+                <code>build_runner</code> per a seguretat</span></li>
+            <li><span class="techBullet">›</span> <code>dio</code> <span class="desc">Client HTTP avançat amb
+                interceptors de JWT</span></li>
+            <li><span class="techBullet">›</span> <code>flutter_secure_storage</code> <span class="desc">Magatzem xifrat
+                local del token d'accés</span></li>
+            <li><span class="techBullet">›</span> <code>shimmer</code> <span class="desc">Skeletons de càrrega visual
+                per a una UX fluida</span></li>
+            <li><span class="techBullet">›</span> <code>flutter_markdown</code> <span class="desc">Visualitzador de
+                documents i contractes en mòbil</span></li>
+            <li><span class="techBullet">›</span> <code>file_picker</code> <span class="desc">Selector natiu de fitxers
+                PDF/imatges per a l'NDA</span></li>
+            <li><span class="techBullet">›</span> <code>intl</code> + <code>l10n</code> <span class="desc">Traducció
+                nativa multi-idioma (Català/Castellà/Anglès)</span></li>
+            <li><span class="techBullet">›</span> <code>google_fonts</code> <span class="desc">Integració dinàmica de
+                tipografies Material Design</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP / SPRINTS -->
+    <section id="sprints">
+      <div class="sectionTitle">
+        <h2>Històric de Desenvolupament</h2>
+        <p>Evolució tècnica estructurada per sprints de treball i la fase final del projecte.</p>
+      </div>
+
+      <div class="timeline">
+
         <!-- Sprint 0 -->
-        <div class="card pad" style="border-left: 4px solid rgba(255, 255, 255, 0.2);">
-          <div class="kicker" style="margin-bottom: 12px; font-size: 11px;">SPRINT 0 — INICIO</div>
-          <h4 style="margin: 0 0 16px; font-size: 18px;">Bases del servidor</h4>
-          
-          <div style="font-size: 13px; color: var(--muted); line-height: 1.6;">
-            <p style="margin-bottom: 8px;"><strong>Backend:</strong></p>
-            <ul style="padding-left: 18px;">
-              <li>Configuración inicial Node.js + Express.</li>
-              <li>Conexión base con MongoDB Atlas.</li>
-              <li>Estructura de carpetas y middleware base.</li>
-            </ul>
+        <div class="timelineItem completed">
+          <div class="timelineDot">
+            <div class="timelineDotInner"></div>
+          </div>
+          <div class="timelineContent">
+            <div class="timelineHeader">
+              <h4>Sprint 0 — Ciments del Servidor</h4>
+              <span class="timelineTag">Completat</span>
+            </div>
+            <div class="timelineDetails">
+              <div class="timelineCol">
+                <h5>Backend (`backend-relevo`)</h5>
+                <ul>
+                  <li>Configuració de l'entorn de desenvolupament TypeScript i Node.js.</li>
+                  <li>Creació del servidor base amb Express (`src/index.ts` i `src/app.ts`).</li>
+                  <li>Connexió i configuració del pool de connexions a MongoDB Atlas (`src/database.ts`).</li>
+                  <li>Implementació de middleware base: gestió centralitzada d'errors i formatador de respostes JSON.
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Sprint 1 -->
-        <div class="card pad" style="border-left: 4px solid var(--muted2);">
-          <div class="kicker" style="margin-bottom: 12px; font-size: 11px;">SPRINT 1</div>
-          <h4 style="margin: 0 0 16px; font-size: 18px;">Fundamentos y Estructura</h4>
-          
-          <div style="font-size: 13px; color: var(--muted); line-height: 1.6;">
-            <p style="margin-bottom: 8px;"><strong>Backend:</strong></p>
-            <ul style="padding-left: 18px; margin-bottom: 16px;">
-              <li>Modelos (3) y Endpoints base.</li>
-              <li>Documentación Swagger doc.</li>
-              <li>Validaciones de esquema (Zod).</li>
-            </ul>
-
-            <p style="margin-bottom: 8px;"><strong>Frontend Web:</strong></p>
-            <ul style="padding-left: 18px;">
-              <li>Modelos (3) sincronizados.</li>
-              <li>Back Office UI V1.</li>
-              <li>Funcionalidad Soft Delete.</li>
-              <li>Selección múltiple (Multi Select).</li>
-            </ul>
+        <div class="timelineItem completed">
+          <div class="timelineDot">
+            <div class="timelineDotInner"></div>
+          </div>
+          <div class="timelineContent">
+            <div class="timelineHeader">
+              <h4>Sprint 1 — Arquitectura de Dades i Backoffice V1</h4>
+              <span class="timelineTag">Completat</span>
+            </div>
+            <div class="timelineDetails">
+              <div class="timelineCol">
+                <h5>Backend (`backend-relevo`)</h5>
+                <ul>
+                  <li>Desenvolupament dels primers esquemes i models Mongoose: `Usuario`, `Oportunidad` i
+                    `SolicitudAcceso`.</li>
+                  <li>Integració d'OpenAPI 3.0 via `swagger-jsdoc` per autogenerar documentació.</li>
+                  <li>Validació estricta de paràmetres de rutes d'entrada utilitzant la llibreria Zod.</li>
+                </ul>
+              </div>
+              <div class="timelineCol">
+                <h5>Frontend Web (`frontend-relevo`)</h5>
+                <ul>
+                  <li>Creació de l'estructura modular d'Angular 21 (`core/`, `pages/`, `shared/`).</li>
+                  <li>Disseny i codificació del Backoffice de gestió administrativa V1.</li>
+                  <li>Lògica de Soft Delete (esborrat lògic per preservar la traçabilitat de dades).</li>
+                  <li>Selector múltiple de dades (Multi-select) per a sectors i regions en formularis.</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Sprint 2 -->
-        <div class="card pad" style="border-left: 4px solid var(--brand);">
-          <div class="kicker" style="margin-bottom: 12px; font-size: 11px;">SPRINT 2</div>
-          <h4 style="margin: 0 0 16px; font-size: 18px;">Autenticación y Perfilado</h4>
-          
-          <div style="font-size: 13px; color: var(--muted); line-height: 1.6;">
-            <p style="margin-bottom: 8px;"><strong>Backend:</strong></p>
-            <ul style="padding-left: 18px; margin-bottom: 16px;">
-              <li>Implementación de JWT.</li>
-              <li>Endpoints de Login y Register.</li>
-              <li>Hash de passwords (seguridad).</li>
-              <li>Error handling estandarizado.</li>
-            </ul>
-
-            <p style="margin-bottom: 8px;"><strong>Frontend Web:</strong></p>
-            <ul style="padding-left: 18px;">
-              <li>Back Office V2 (Mejorado).</li>
-              <li>Módulos de Login y Register.</li>
-              <li>Gestión de Perfil de usuario.</li>
-              <li>Integración total de JWT.</li>
-            </ul>
+        <div class="timelineItem completed">
+          <div class="timelineDot">
+            <div class="timelineDotInner"></div>
+          </div>
+          <div class="timelineContent">
+            <div class="timelineHeader">
+              <h4>Sprint 2 — Seguretat, JWT i Perfils</h4>
+              <span class="timelineTag">Completat</span>
+            </div>
+            <div class="timelineDetails">
+              <div class="timelineCol">
+                <h5>Backend (`backend-relevo`)</h5>
+                <ul>
+                  <li>Integració d'autenticació basada en tokens JWT amb middleware de seguretat `auth.ts`.</li>
+                  <li>Xifrat de claus de pas dels usuaris mitjançant salat a `bcryptjs`.</li>
+                  <li>Controladors i rutes completes de registre i login (`authController.ts` i `authRoutes.ts`).</li>
+                  <li>Mecanismes de control de recursos a nivell de base de dades (autorització granular).</li>
+                </ul>
+              </div>
+              <div class="timelineCol">
+                <h5>Frontend Web (`frontend-relevo`)</h5>
+                <ul>
+                  <li>Implementació de formularis de Login i Registre amb validacions reactives d'estat.</li>
+                  <li>Integració de l'interceptor `auth.interceptor.ts` per injectar automàticament el JWT.</li>
+                  <li>Gestió del perfil de l'usuari amb formularis d'interessos i detalls de transició.</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Sprint 3 -->
-        <div class="card pad" style="border-left: 4px solid var(--ok); background: rgba(52, 211, 153, 0.03);">
-          <div class="kicker" style="margin-bottom: 12px; font-size: 11px; border-color: var(--ok); color: var(--ok);">SPRINT 3</div>
-          <h4 style="margin: 0 0 16px; font-size: 18px;">E2E y Omnicanalidad</h4>
-          
-          <div style="font-size: 13px; color: var(--muted); line-height: 1.6;">
-            <p style="margin-bottom: 6px;"><strong>Backend:</strong></p>
-            <ul style="padding-left: 18px; margin-bottom: 12px;">
-              <li>Sockets (1 a 1) y Accesibilidad.</li>
-              <li>Flujo E2E completo (Flujo de la idea).</li>
-              <li>Testing (Vitest), Husky, Linting.</li>
-              <li>Despliegue Prod & Docker Hub.</li>
-            </ul>
+        <div class="timelineItem completed">
+          <div class="timelineDot">
+            <div class="timelineDotInner"></div>
+          </div>
+          <div class="timelineContent">
+            <div class="timelineHeader">
+              <h4>Sprint 3 — Control de Qualitat, E2E i Desplegament</h4>
+              <span class="timelineTag">Completat</span>
+            </div>
+            <div class="timelineDetails">
+              <div class="timelineCol">
+                <h5>Qualitat de Programari</h5>
+                <ul>
+                  <li>Integració de suite de proves automatitzades i ràpides amb Vitest i jsdom.</li>
+                  <li>Configuració de l'eina Husky per a pre-commit i pre-push hooks (automatització de qualitat).</li>
+                  <li>Polítiques estrictes de format i anàlisi de codi amb ESLint i Prettier a backend i frontend.</li>
+                </ul>
+              </div>
+              <div class="timelineCol">
+                <h5>DevOps & Deployment</h5>
+                <ul>
+                  <li>Escriptura de fitxers `Dockerfile` per a la compilació i muntatge dels contenidors del backend i
+                    frontend.</li>
+                  <li>Creació d'un entorn unificat amb `docker-compose.yml` per aixecar base de dades, backend i
+                    servidors.</li>
+                  <li>Integració de desplegament de producció i pujada d'imatges a Docker Hub.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
-            <p style="margin-bottom: 6px;"><strong>Frontend Web:</strong></p>
-            <ul style="padding-left: 18px; margin-bottom: 12px;">
-              <li>Back Office V3 y Chat WebSockets.</li>
-              <li>Accesibilidad (Idioma, Modo O/C).</li>
-              <li>Flujo E2E y Despliegue Docker.</li>
-            </ul>
+        <!-- Sprint Final -->
+        <div class="timelineItem active">
+          <div class="timelineDot">
+            <div class="timelineDotInner"></div>
+          </div>
+          <div class="timelineContent">
+            <div class="timelineHeader">
+              <h4>Sprint Final — Mentoring, Mapes, Notificacions Push i Analítica</h4>
+              <span class="timelineTag">Sprint Actiu (Projecte Final)</span>
+            </div>
+            <div class="timelineDetails">
 
-            <p style="margin-bottom: 6px;"><strong>Frontend App:</strong></p>
-            <ul style="padding-left: 18px;">
-              <li>Login y Register nativos.</li>
-              <li>Accesibilidad (Idioma, Modo O/C).</li>
-            </ul>
+              <div class="timelineCol">
+                <h5>Sistema de Mentoring</h5>
+                <ul>
+                  <li><b>Mentoring Multilingüe:</b> Implementació d'un sistema complet de continguts de mentoring per a
+                    buyers i sellers.</li>
+
+                  <li><b>Contingut en Markdown:</b> Tots els mòduls de formació es gestionen mitjançant fitxers Markdown
+                    allotjats al backend i servits dinàmicament al frontend web i a l'aplicació mòbil.</li>
+
+                  <li><b>Internacionalització:</b> Contingut disponible en Català, Castellà i Anglès amb càrrega
+                    automàtica segons l'idioma seleccionat per l'usuari.</li>
+                </ul>
+              </div>
+
+              <div class="timelineCol">
+                <h5>Mapes i Geolocalització</h5>
+                <ul>
+                  <li><b>Visualització d'ofertes en mapa:</b> Integració de mapes interactius per mostrar la ubicació
+                    aproximada de les oportunitats publicades.</li>
+
+                  <li><b>Privacitat geogràfica:</b> La plataforma mostra únicament zones aproximades, preservant
+                    l'anonimat dels negocis fins a fases avançades de negociació.</li>
+
+                  <li><b>Filtrat espacial:</b> Els usuaris poden localitzar oportunitats segons la seva zona d'interès
+                    de manera visual.</li>
+                </ul>
+              </div>
+
+              <div class="timelineCol">
+                <h5>Notificacions Push i Analítica</h5>
+                <ul>
+                  <li><b>Firebase Cloud Messaging (FCM):</b> Integració completa de notificacions push utilitzant
+                    Firebase Cloud Messaging i Firebase Admin SDK.</li>
+
+                  <li><b>Notificacions en temps real:</b> Enviament d'avisos davant noves oportunitats, actualitzacions
+                    de sol·licituds i esdeveniments rellevants de la plataforma.</li>
+
+                  <li><b>Matomo Analytics:</b> Incorporació de la plataforma d'analítica Matomo per obtenir
+                    estadístiques d'ús, seguiment de navegació i mètriques de comportament dels usuaris preservant la
+                    privacitat.</li>
+                </ul>
+              </div>
+
+              <div class="timelineCol">
+                <h5>Gestió Documental i CVs</h5>
+                <ul>
+                  <li><b>AWS S3 Presigned URLs:</b> Integració d'emmagatzematge segur a AWS S3 mitjançant URLs temporals
+                    signades.</li>
+
+                  <li><b>Adjunció de currículums:</b> Els candidats poden adjuntar el seu CV durant el procés de
+                    sol·licitud d'una oportunitat empresarial.</li>
+
+                  <li><b>Accés segur als fitxers:</b> Les URLs signades garanteixen que els documents només siguin
+                    accessibles durant un període limitat i per usuaris autoritzats.</li>
+                </ul>
+              </div>
+
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
+    <!-- CONCIENCIA DIGITAL -->
+    <section id="conciencia">
+      <div class="sectionTitle">
+        <h2>Consciència Digital i Disseny Ètic</h2>
+        <p>Valors afegits al producte per a garantir la inclusió social i la sostenibilitat.</p>
+      </div>
+
+      <div class="card pad">
+        <div class="story">
+          <p>
+            Relevo resol un problema social real: el tancament de negocis rendibles per falta de relleu. Hem dissenyat
+            la plataforma sota uns principis ètics molt definits:
+          </p>
+          <ul style="padding-left: 20px; color: var(--muted); line-height: 1.7;">
+            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">UX Inclusiva per a Sèniors:</strong>
+              Donat que els propietaris de negocis solen tenir perfils sèniors, hem desenvolupat menús guiats, textos
+              clars i una interfície lliure de frustració (sense bretxa digital).</li>
+            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">Accessibilitat i
+                Multilingüisme:</strong> Sistema de traduccions centralitzat (`@ngx-translate/core` a web i fitxers
+              `.arb` a Flutter) que permet l'ús nadiu en Català, Castellà i Anglès. Suport de temes fosc i clar integrat
+              per adaptar-se a problemes de salut visual.</li>
+            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">Transparència de Dades i Zero Dark
+                Patterns:</strong> Els propietaris tenen control total de quins usuaris tenen dret a veure la
+              documentació i quan retirar-los-hi l'accés. L'NDA digital té validesa legal i s'explica amb llenguatge
+              planer.</li>
+            <li><strong style="color: var(--text);">Paperless i Sostenibilitat:</strong> L'esborrany de contractes,
+              l'intercanvi de documentació financera i la signatura de confidencialitat es fan íntegraments en format
+              digital, estalviant paper i desplaçaments innecessaris.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      © <span id="year"></span> Relevo — Proyecto universitario (presentación). Diseñado para mostrar concepto, equipo y
-      prototipos.
+      © <span id="year"></span> Relevo — Projecte universitari d'Enginyeria d'Aplicacions (Grau en Enginyeria
+      Informàtica). Dissenyat per a mostrar concepte, arquitectura de sistemes i codi real.
     </footer>
   </div>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightboxInner" role="dialog" aria-modal="true" aria-label="Vista ampliada">
-      <button class="closeBtn" id="closeBtn" aria-label="Cerrar">✕</button>
-      <img id="lightboxImg" src="" alt="Imagen ampliada" />
+      <button class="closeBtn" id="closeBtn" aria-label="Tancar">✕</button>
+      <img id="lightboxImg" src="" alt="Imatge ampliada" />
     </div>
   </div>
 
@@ -1313,14 +1669,15 @@ classDiagram
     window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
   </script>
 
-<script type="module">
+  <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ 
-      startOnLoad: true, 
+    mermaid.initialize({
+      startOnLoad: true,
       theme: 'dark',
       fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif'
     });
   </script>
+
 </html>
 
 </body>
