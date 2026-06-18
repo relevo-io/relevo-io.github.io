@@ -1286,39 +1286,61 @@ classDiagram
     <section id="tecnologies">
       <div class="sectionTitle">
         <h2>Pila Tecnològica Completa</h2>
-        <p>Desenvolupament modern, segur i multiplataforma analitzat directament del codi.</p>
+        <p>Frameworks i llibreries principals utilitzats al backend, la WebApp i l’app mòbil.</p>
       </div>
 
       <div class="techSectionGrid">
+
         <!-- Backend -->
         <div class="techCard">
           <div class="techCardHeader">
             <div class="icon" style="background: rgba(139, 92, 246, 0.1); color: var(--brand);">N</div>
             <h3>Backend REST API</h3>
           </div>
+
           <ul class="techCardList">
-            <li><span class="techBullet">›</span> <code>express</code> <span class="desc">RESTful API robusta i
-                middleware de rutes</span></li>
-            <li><span class="techBullet">›</span> <code>typescript</code> <span class="desc">Tipat estàtic en entorn de
-                servidor</span></li>
-            <li><span class="techBullet">›</span> <code>mongoose</code> <span class="desc">Modelat d'esquemes per a
-                MongoDB Atlas</span></li>
-            <li><span class="techBullet">›</span> <code>socket.io</code> <span class="desc">Servidor de WebSockets per
-                al xat bidireccional</span></li>
-            <li><span class="techBullet">›</span> <code>firebase-admin</code> <span class="desc">Notificacions push via
-                FCM (Firebase Cloud Messaging)</span></li>
-            <li><span class="techBullet">›</span> <code>@aws-sdk/client-s3</code> <span class="desc">Generació d'URLs
-                presignades per pujar documents</span></li>
-            <li><span class="techBullet">›</span> <code>zod</code> <span class="desc">Validació estricta d'esquemes en
-                temps d'execució</span></li>
-            <li><span class="techBullet">›</span> <code>bcryptjs</code> <span class="desc">Hash segur i xifrat de
-                contrasenyes</span></li>
-            <li><span class="techBullet">›</span> <code>pino</code> <span class="desc">Logger de consola estructurat de
-                baix consum</span></li>
-            <li><span class="techBullet">›</span> <code>swagger-ui-express</code> <span class="desc">Documentació
-                interactiva Swagger OpenAPI 3.0</span></li>
-            <li><span class="techBullet">›</span> <code>vitest</code> <span class="desc">Framework d'execució de tests
-                unitaris i d'integració</span></li>
+            <li><span class="techBullet">›</span>
+              <div><code>express</code><span class="desc">Framework principal per exposar la REST API i gestionar rutes
+                  HTTP.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>typescript</code><span class="desc">Tipatge estàtic per reduir errors i estructurar millor el
+                  codi del servidor.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>mongoose</code><span class="desc">Modelatge d’esquemes i accés a la base de dades
+                  MongoDB.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>jsonwebtoken</code><span class="desc">Autenticació mitjançant tokens JWT.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>bcryptjs</code><span class="desc">Hash segur de contrasenyes abans de guardar-les a la base de
+                  dades.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>zod</code><span class="desc">Validació de dades d’entrada abans d’arribar als
+                  controladors.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>socket.io</code><span class="desc">Comunicació en temps real per funcionalitats com el
+                  xat.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>firebase-admin</code><span class="desc">Integració amb Firebase Cloud Messaging per enviar
+                  notificacions push.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>@aws-sdk/client-s3</code><span class="desc">Gestió d’arxius a AWS S3, com l’adjunció de CVs en
+                  sol·licituds d’ofertes.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>swagger-ui-express</code><span class="desc">Documentació interactiva de la REST API amb
+                  Swagger/OpenAPI.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>vitest</code><span class="desc">Execució de tests del backend.</span></div>
+            </li>
           </ul>
         </div>
 
@@ -1328,25 +1350,48 @@ classDiagram
             <div class="icon" style="background: rgba(239, 68, 68, 0.1); color: #EF4444;">A</div>
             <h3>Frontend Web SPA</h3>
           </div>
+
           <ul class="techCardList angular">
-            <li><span class="techBullet">›</span> <code>@angular/core</code> <span class="desc">Angular 21 amb
-                reactivitat nativa via <b>Signals</b></span></li>
-            <li><span class="techBullet">›</span> <code>@angular/material</code> <span class="desc">Componentes UI
-                premium i responsive</span></li>
-            <li><span class="techBullet">›</span> <code>@ngx-translate/core</code> <span class="desc">Suport
-                multi-idioma internacional (i18n)</span></li>
-            <li><span class="techBullet">›</span> <code>socket.io-client</code> <span class="desc">Connexió al xat a
-                temps real en client web</span></li>
-            <li><span class="techBullet">›</span> <code>firebase/app</code> <span class="desc">Integració web per a
-                recepció de missatgeria FCM</span></li>
-            <li><span class="techBullet">›</span> <code>ngx-markdown</code> <span class="desc">Renderització interactiva
-                de contractes i NDAs</span></li>
-            <li><span class="techBullet">›</span> <code>rxjs</code> <span class="desc">Programació reactiva per a fluxes
-                de dades</span></li>
-            <li><span class="techBullet">›</span> <code>vitest</code> + <code>jsdom</code> <span class="desc">Entorn de
-                tests lleuger alternatiu a Karma</span></li>
-            <li><span class="techBullet">›</span> <code>prettier</code> + <code>eslint</code> <span
-                class="desc">Assegurament del format de codi en pre-commit</span></li>
+            <li><span class="techBullet">›</span>
+              <div><code>@angular/core</code><span class="desc">Framework principal de la WebApp basada en
+                  components.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>@angular/common/http</code><span class="desc">HttpClient per consumir la REST API del
+                  backend.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>@angular/material</code><span class="desc">Components visuals per formularis, taules, botons i
+                  interfície responsive.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>rxjs</code><span class="desc">Gestió de fluxos asíncrons, peticions HTTP i estat
+                  reactiu.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>socket.io-client</code><span class="desc">Connexió del client web amb els serveis en temps real
+                  del backend.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>firebase/app</code><span class="desc">Integració amb Firebase Cloud Messaging per rebre
+                  notificacions push a la web.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>@ngx-translate/core</code><span class="desc">Internacionalització de la interfície en diferents
+                  idiomes.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>ngx-markdown</code><span class="desc">Renderització dels continguts de mentoring servits en
+                  format Markdown.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>Matomo</code><span class="desc">Analítica d’ús i visualització de dades de comportament dels
+                  usuaris.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>eslint</code> + <code>prettier</code><span class="desc">Qualitat, consistència i format del
+                  codi.</span></div>
+            </li>
           </ul>
         </div>
 
@@ -1354,29 +1399,52 @@ classDiagram
         <div class="techCard">
           <div class="techCardHeader">
             <div class="icon" style="background: rgba(6, 182, 212, 0.1); color: var(--brand2);">F</div>
-            <h3>Mobile App (Flutter)</h3>
+            <h3>Mobile App Flutter</h3>
           </div>
+
           <ul class="techCardList flutter">
-            <li><span class="techBullet">›</span> <code>flutter_riverpod</code> <span class="desc">Gestió d'estat
-                reactiva i previsible</span></li>
-            <li><span class="techBullet">›</span> <code>riverpod_generator</code> <span class="desc">Codegen amb
-                <code>build_runner</code> per a seguretat</span></li>
-            <li><span class="techBullet">›</span> <code>dio</code> <span class="desc">Client HTTP avançat amb
-                interceptors de JWT</span></li>
-            <li><span class="techBullet">›</span> <code>flutter_secure_storage</code> <span class="desc">Magatzem xifrat
-                local del token d'accés</span></li>
-            <li><span class="techBullet">›</span> <code>shimmer</code> <span class="desc">Skeletons de càrrega visual
-                per a una UX fluida</span></li>
-            <li><span class="techBullet">›</span> <code>flutter_markdown</code> <span class="desc">Visualitzador de
-                documents i contractes en mòbil</span></li>
-            <li><span class="techBullet">›</span> <code>file_picker</code> <span class="desc">Selector natiu de fitxers
-                PDF/imatges per a l'NDA</span></li>
-            <li><span class="techBullet">›</span> <code>intl</code> + <code>l10n</code> <span class="desc">Traducció
-                nativa multi-idioma (Català/Castellà/Anglès)</span></li>
-            <li><span class="techBullet">›</span> <code>google_fonts</code> <span class="desc">Integració dinàmica de
-                tipografies Material Design</span></li>
+            <li><span class="techBullet">›</span>
+              <div><code>Flutter</code> + <code>Dart</code><span class="desc">Desenvolupament multiplataforma per
+                  Android i iOS.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>flutter_riverpod</code><span class="desc">Gestió d’estat reactiva i previsible dins
+                  l’aplicació.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>riverpod_generator</code><span class="desc">Generació de codi per reduir errors i millorar
+                  mantenibilitat.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>dio</code><span class="desc">Client HTTP avançat per consumir la REST API i gestionar
+                  tokens.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>flutter_secure_storage</code><span class="desc">Emmagatzematge segur del token d’accés al
+                  dispositiu.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>shared_preferences</code><span class="desc">Persistència local de preferències de
+                  l’usuari.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>flutter_markdown</code><span class="desc">Visualització dels continguts de mentoring en format
+                  Markdown.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>file_picker</code><span class="desc">Selecció de fitxers, com el CV adjunt en sol·licituds
+                  d’ofertes.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>intl</code> + <code>l10n</code><span class="desc">Traducció nativa multiidioma.</span></div>
+            </li>
+            <li><span class="techBullet">›</span>
+              <div><code>shimmer</code><span class="desc">Skeletons de càrrega per millorar l’experiència
+                  d’usuari.</span></div>
+            </li>
           </ul>
         </div>
+
       </div>
     </section>
 
