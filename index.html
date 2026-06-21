@@ -13,23 +13,24 @@
     rel="stylesheet">
   <style>
     :root {
-      --bg0: #05070F;
-      --bg1: #0A0D1A;
-      --bg2: #101426;
-      --card: rgba(255, 255, 255, .03);
-      --card-hover: rgba(255, 255, 255, .06);
-      --border: rgba(255, 255, 255, .08);
-      --border-hover: rgba(255, 255, 255, .18);
-      --text: #F1F5F9;
-      --muted: #94A3B8;
-      --muted2: #64748B;
-      --brand: #8B5CF6;
-      --brand-glow: rgba(139, 92, 246, 0.25);
+      --bg0: #030712;
+      --bg1: #0B1326;
+      --bg2: #111A2E;
+      --card: rgba(23, 31, 51, 0.45);
+      --card-hover: rgba(23, 31, 51, 0.65);
+      --border: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --text: #DAE2FD;
+      --muted: #ABB9D2;
+      --muted2: #6B7B99;
+      --brand: #1B8A5A;
+      --brand-light: #4ADE80;
+      --brand-glow: rgba(27, 138, 90, 0.25);
       --brand2: #06B6D4;
       --brand2-glow: rgba(6, 182, 212, 0.2);
       --ok: #10B981;
       --ok-glow: rgba(16, 185, 129, 0.15);
-      --shadow: 0 20px 50px rgba(0, 0, 0, .6);
+      --shadow: 0 20px 50px rgba(0, 0, 0, .5);
       --radius-sm: 12px;
       --radius-md: 18px;
       --radius-lg: 28px;
@@ -50,9 +51,9 @@
       margin: 0;
       color: var(--text);
       background:
-        radial-gradient(1200px 800px at 15% -10%, rgba(139, 92, 246, .28), transparent 60%),
-        radial-gradient(1000px 700px at 85% 15%, rgba(6, 182, 212, .18), transparent 55%),
-        radial-gradient(1200px 800px at 50% 120%, rgba(139, 92, 246, .15), transparent 60%),
+        radial-gradient(1200px 800px at 15% -10%, rgba(27, 138, 90, .22), transparent 60%),
+        radial-gradient(1000px 700px at 85% 15%, rgba(6, 182, 212, .15), transparent 55%),
+        radial-gradient(1200px 800px at 50% 120%, rgba(27, 138, 90, .12), transparent 60%),
         linear-gradient(180deg, var(--bg0), var(--bg1) 50%, var(--bg2));
       background-attachment: fixed;
       font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -77,9 +78,9 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(5, 7, 15, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(3, 7, 18, 0.7);
       border-bottom: 1px solid var(--border);
       transition: all 0.3s ease;
     }
@@ -143,7 +144,6 @@
     @media (max-width: 900px) {
       .navlinks {
         display: none;
-        /* simple responsive handling */
       }
     }
 
@@ -153,9 +153,11 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       background:
-        radial-gradient(800px 500px at 10% 0%, rgba(139, 92, 246, .2), transparent 70%),
+        radial-gradient(800px 500px at 10% 0%, rgba(27, 138, 90, .18), transparent 70%),
         radial-gradient(800px 500px at 90% 100%, rgba(6, 182, 212, .12), transparent 70%),
-        rgba(255, 255, 255, .01);
+        rgba(23, 31, 51, 0.4);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       box-shadow: var(--shadow);
       overflow: hidden;
       position: relative;
@@ -185,8 +187,8 @@
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
-      border: 1px solid rgba(139, 92, 246, 0.2);
-      background: rgba(139, 92, 246, 0.06);
+      border: 1px solid rgba(27, 138, 90, 0.2);
+      background: rgba(27, 138, 90, 0.06);
       padding: 6px 14px;
       border-radius: 999px;
       margin-bottom: 20px;
@@ -246,8 +248,8 @@
 
     .btn {
       appearance: none;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .03);
       color: var(--text);
       padding: 12px 24px;
       border-radius: var(--radius-sm);
@@ -258,6 +260,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .btn:hover {
@@ -268,15 +272,15 @@
     }
 
     .btnPrimary {
-      border-color: rgba(139, 92, 246, 0.4);
-      background: linear-gradient(135deg, var(--brand) 0%, rgba(139, 92, 246, 0.6) 100%);
+      border-color: rgba(27, 138, 90, 0.4);
+      background: linear-gradient(135deg, var(--brand) 0%, rgba(27, 138, 90, 0.6) 100%);
       box-shadow: 0 10px 25px var(--brand-glow);
     }
 
     .btnPrimary:hover {
-      background: linear-gradient(135deg, #9b6ef7 0%, rgba(139, 92, 246, 0.8) 100%);
-      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
-      border-color: rgba(139, 92, 246, 0.6);
+      background: linear-gradient(135deg, #239d67 0%, rgba(27, 138, 90, 0.8) 100%);
+      box-shadow: 0 12px 30px rgba(27, 138, 90, 0.4);
+      border-color: rgba(27, 138, 90, 0.6);
     }
 
     .pill {
@@ -289,11 +293,13 @@
     .pill span {
       padding: 6px 12px;
       border-radius: 99px;
-      background: rgba(255, 255, 255, .03);
+      background: rgba(255, 255, 255, .02);
       border: 1px solid var(--border);
       color: var(--muted);
       font-size: 12.5px;
       font-weight: 500;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       transition: all 0.2s ease;
     }
 
@@ -314,15 +320,16 @@
       padding: 20px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
-      background: rgba(0, 0, 0, .2);
-      backdrop-filter: blur(10px);
+      background: rgba(11, 19, 38, 0.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       transition: all 0.3s ease;
     }
 
     .stat:hover {
       transform: translateX(5px);
       border-color: var(--border-hover);
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(23, 31, 51, 0.5);
     }
 
     .tagOk {
@@ -392,6 +399,8 @@
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
       background: var(--card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       box-shadow: var(--shadow);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -433,7 +442,9 @@
     .member {
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
-      background: rgba(0, 0, 0, .15);
+      background: rgba(11, 19, 38, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 16px;
       text-align: center;
       transition: all 0.3s ease;
@@ -441,9 +452,9 @@
 
     .member:hover {
       transform: translateY(-4px);
-      border-color: rgba(139, 92, 246, 0.3);
-      box-shadow: 0 10px 20px rgba(139, 92, 246, 0.08);
-      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(27, 138, 90, 0.3);
+      box-shadow: 0 10px 20px rgba(27, 138, 90, 0.08);
+      background: rgba(23, 31, 51, 0.45);
     }
 
     .avatar {
@@ -452,7 +463,7 @@
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(139, 92, 246, .15), rgba(6, 182, 212, .1));
+      background: linear-gradient(135deg, rgba(27, 138, 90, .15), rgba(6, 182, 212, .1));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -521,7 +532,7 @@
     .story blockquote {
       margin: 20px 0 0 0;
       padding: 16px 20px;
-      background: rgba(255, 255, 255, .02);
+      background: rgba(11, 19, 38, 0.25);
       border: 1px solid var(--border);
       border-left: 4px solid var(--brand);
       border-radius: var(--radius-sm);
@@ -547,7 +558,9 @@
     .techCard {
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.01);
+      background: rgba(11, 19, 38, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 28px;
       display: flex;
       flex-direction: column;
@@ -557,7 +570,7 @@
     .techCard:hover {
       transform: translateY(-4px);
       border-color: rgba(255, 255, 255, 0.15);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(23, 31, 51, 0.4);
       box-shadow: var(--shadow);
     }
 
@@ -609,8 +622,8 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
       color: var(--brand-light);
-      background: rgba(139, 92, 246, 0.08);
-      border: 1px solid rgba(139, 92, 246, 0.15);
+      background: rgba(27, 138, 90, 0.08);
+      border: 1px solid rgba(27, 138, 90, 0.15);
       padding: 1px 5px;
       border-radius: 4px;
       white-space: nowrap;
@@ -698,7 +711,7 @@
 
     .timelineItem:hover .timelineDot {
       border-color: var(--brand);
-      box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 0 10px rgba(27, 138, 90, 0.4);
     }
 
     .timelineItem:hover .timelineDotInner {
@@ -741,14 +754,16 @@
     .timelineContent {
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.015);
+      background: rgba(11, 19, 38, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 24px;
       transition: all 0.3s ease;
     }
 
     .timelineItem:hover .timelineContent {
       border-color: var(--border-hover);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(23, 31, 51, 0.4);
     }
 
     .timelineHeader {
@@ -792,8 +807,21 @@
 
     .timelineDetails {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+    }
+
+    .timelineDetails > .timelineCol:only-child {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 768px) {
+      .timelineDetails {
+        grid-template-columns: 1fr;
+      }
+      .timelineDetails > .timelineCol:only-child {
+        grid-column: span 1;
+      }
     }
 
     .timelineCol {
@@ -842,7 +870,9 @@
     .mock {
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, .01);
+      background: rgba(11, 19, 38, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       overflow: hidden;
       cursor: zoom-in;
       position: relative;
@@ -856,8 +886,8 @@
     .mock:hover {
       transform: translateY(-6px);
       border-color: var(--border-hover);
-      background: rgba(255, 255, 255, .04);
-      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+      background: rgba(23, 31, 51, 0.35);
+      box-shadow: 0 20px 40px rgba(27, 138, 90, 0.15);
     }
 
     .mock img {
@@ -867,6 +897,7 @@
       display: block;
       border-radius: 8px;
       transition: transform 0.3s ease;
+      margin: auto 0;
     }
 
     .mockLabel {
@@ -960,14 +991,14 @@
           <div class="logo" aria-hidden="true"></div>
           Relevo
         </a>
-        <div class="navlinks" role="navigation" aria-label="Seccions">
-          <a href="#equipo">Equip</a>
-          <a href="#historia">Història</a>
+        <div class="navlinks" role="navigation" aria-label="Secciones">
+          <a href="#equipo">Equipo</a>
+          <a href="#historia">Historia</a>
           <a href="#mockups">Mockups</a>
-          <a href="#diagrama">Model de Dades</a>
-          <a href="#tecnologies">Tecnologies</a>
+          <a href="#diagrama">Modelo de Datos</a>
+          <a href="#tecnologies">Tecnologías</a>
           <a href="#sprints">Sprints</a>
-          <a href="#conciencia">Consciència Digital</a>
+          <a href="#conciencia">Conciencia Digital</a>
         </div>
       </div>
     </div>
@@ -978,19 +1009,19 @@
     <div class="hero" id="top">
       <div class="heroInner">
         <div>
-          <div class="kicker"><span class="dot"></span> Presentació del projecte — Enginyeria d’Aplicacions</div>
+          <div class="kicker"><span class="dot"></span> Presentación del proyecto — Ingeniería de Aplicaciones</div>
           <h1>Relevo</h1>
           <p class="subtitle">
-            Plataforma confidencial per estructurar la transició generacional de microempreses:
-            anuncis anònims per zona, espai privat de documentació i coordinació en temps real.
+            Plataforma confidencial para estructurar la transición generacional de microempresas:
+            anuncios anónimos por zona, espacio privado de documentación y coordinación en tiempo real.
           </p>
 
           <div class="ctaRow">
-            <a class="btn btnPrimary" href="#mockups">Veure prototips</a>
-            <a class="btn" href="#historia">Llegir història d'ús</a>
+            <a class="btn btnPrimary" href="#mockups">Ver prototipos</a>
+            <a class="btn" href="#historia">Leer historia de uso</a>
           </div>
 
-          <div class="pill" aria-label="Tecnologies Principals">
+          <div class="pill" aria-label="Tecnologías Principales">
             <span>Angular 21</span>
             <span>Flutter 3.24</span>
             <span>Node.js + Express</span>
@@ -1002,17 +1033,17 @@
 
         <div class="stats">
           <div class="stat">
-            <div class="tagOk"><span class="check"></span> Confidencialitat per fases</div>
-            <small>Listings anònims amb accés progressiu a dades sensibles només després de signar l'NDA.</small>
+            <div class="tagOk"><span class="check"></span> Confidencialidad por fases</div>
+            <small>Listings anónimos con acceso progresivo a datos sensibles solo después de firmar el NDA.</small>
           </div>
           <div class="stat">
-            <div class="tagOk"><span class="check"></span> Cercador amb mapa cec</div>
-            <small>Ubicació aproximada per zones per evitar especulacions o pèrdua de clients en actiu.</small>
+            <div class="tagOk"><span class="check"></span> Buscador con mapa ciego</div>
+            <small>Ubicación aproximada por zonas para evitar especulaciones o pérdida de clientes en activo.</small>
           </div>
           <div class="stat">
-            <div class="tagOk"><span class="check"></span> Sincronització total</div>
-            <small>Notificacions push instantànies i xat bidireccional en temps real per agilitzar la
-              negociació.</small>
+            <div class="tagOk"><span class="check"></span> Sincronización total</div>
+            <small>Notificaciones push instantáneas y chat bidireccional en tiempo real para agilizar la
+              negociación.</small>
           </div>
         </div>
       </div>
@@ -1021,8 +1052,8 @@
     <!-- TEAM -->
     <section id="equipo">
       <div class="sectionTitle">
-        <h2>Equip de Treball</h2>
-        <p>5 estudiants compromesos amb la transició empresarial.</p>
+        <h2>Equipo de Trabajo</h2>
+        <p>5 estudiantes comprometidos con la transición empresarial.</p>
       </div>
 
       <div class="card pad">
@@ -1035,7 +1066,7 @@
             </div>
             <strong>Pablo Casado</strong>
             <small>Backend & DevOps Lead</small>
-            <span class="detail">API REST, seguretat JWT, Docker, S3 presigned URLs, logger Pino i socket.io.</span>
+            <span class="detail">API REST, seguridad JWT, Docker, S3 presigned URLs, logger Pino y socket.io.</span>
           </div>
 
           <div class="member">
@@ -1046,7 +1077,7 @@
             </div>
             <strong>Paula Tolosa</strong>
             <small>Frontend Web Lead</small>
-            <span class="detail">SPA en Angular 21, Signals reactius, client WebSockets, i18n, Material UI i
+            <span class="detail">SPA en Angular 21, Signals reactivos, cliente WebSockets, i18n, Material UI y
               Guards.</span>
           </div>
 
@@ -1058,7 +1089,7 @@
             </div>
             <strong>Pol Puig</strong>
             <small>Mobile App Lead</small>
-            <span class="detail">App en Flutter 3.24, Riverpod, clean architecture, secure storage, i18n local i
+            <span class="detail">App en Flutter 3.24, Riverpod, clean architecture, secure storage, i18n local y
               skeletons.</span>
           </div>
 
@@ -1070,8 +1101,8 @@
             </div>
             <strong>Andrea Zapata</strong>
             <small>UI/UX & Product Design</small>
-            <span class="detail">Fluxos de navegació, sistema de disseny (dark/light), prototips interactius i
-              accessibilitat.</span>
+            <span class="detail">Flujos de navegación, sistema de diseño (dark/light), prototipos interactivos y
+              accesibilidad.</span>
           </div>
 
           <div class="member">
@@ -1082,7 +1113,7 @@
             </div>
             <strong>Pablo Santamaría</strong>
             <small>QA & Integration Tester</small>
-            <span class="detail">Proves d'integració amb Vitest, E2E, Husky pre-commit hooks i pipelines.</span>
+            <span class="detail">Pruebas de integración con Vitest, E2E, Husky pre-commit hooks y pipelines.</span>
           </div>
         </div>
       </div>
@@ -1091,38 +1122,38 @@
     <!-- USER STORY -->
     <section id="historia">
       <div class="sectionTitle">
-        <h2>Història d'Usuari</h2>
-        <p>Context real que justifica i dóna sentit a la plataforma Relevo.</p>
+        <h2>Historia de Usuario</h2>
+        <p>Contexto real que justifica y da sentido a la plataforma Relevo.</p>
       </div>
 
       <div class="card pad">
         <p class="story">
-          <strong>En Joan</strong> té 62 anys i és propietari d’un taller mecànic a Terrassa que va fundar fa més de 30
-          anys.
-          El negoci funciona bé, té 7 treballadors i una cartera de clients fidel, però en Joan vol jubilar-se en els
-          propers dos anys.
-          El problema és que els seus fills no volen continuar amb el negoci i ell no vol tancar una empresa que encara
-          és rendible.
+          <strong>Joan</strong> tiene 62 años y es propietario de un taller mecánico en Terrassa que fundó hace más de 30
+          años.
+          El negocio funciona bien, tiene 7 trabajadores y una cartera de clientes fiel, pero Joan quiere jubilarse en los
+          próximos dos años.
+          El problema es que sus hijos no quieren continuar con el negocio y él no quiere cerrar una empresa que todavía
+          es rentable.
           <br><br>
-          En Joan no vol penjar cap anunci públic perquè podria generar rumors i incertesa interna. Al mateix temps, la
+          Joan no quiere colgar ningún anuncio público porque podría generar rumores e incertidumbre interna. Al mismo tiempo,
           <strong>Marta</strong>,
-          de 29 anys, amb experiència en gestió, vol liderar un negoci real sense començar des de zero, però no pot
-          assumir una compra total.
+          de 29 años, con experiencia en gestión, quiere liderar un negocio real sin empezar desde cero, pero no puede
+          asumir una compra total.
           <br><br>
-          La Marta descobreix <strong>Relevo</strong>, on pot veure oportunitats <em>anònimes</em> per sector i zona.
-          Per accedir a informació més detallada,
-          verifica el seu perfil i accepta un <span class="muted">acord de confidencialitat (NDA)</span>. Un cop
-          acceptat, s’obre un espai privat: xat integrat,
-          documentació bàsica en un entorn segur i un simulador per analitzar escenaris d’entrada progressiva.
+          Marta descubre <strong>Relevo</strong>, donde puede ver oportunidades <em>anónimas</em> por sector y zona.
+          Para acceder a información más detallada,
+          verifica su perfil y acepta un <span class="muted">acuerdo de confidencialidad (NDA)</span>. Una vez
+          aceptado, se abre un espacio privado: chat integrado,
+          documentación básica en un entorno seguro y un simulador para analizar escenarios de entrada progresiva.
           <br><br>
-          Gràcies a Relevo, en Joan pot planificar la transició de forma ordenada i confidencial, i la Marta pot avançar
-          amb seguretat cap a un rol de direcció.
+          Gracias a Relevo, Joan puede planificar la transición de forma ordenada y confidencial, y Marta puede avanzar
+          con seguridad hacia un rol de dirección.
         </p>
 
         <blockquote>
-          <strong>Nota de disseny:</strong> A la plataforma final, la ubicació es mostra sempre per <strong>zona
-            aproximada</strong> (mai el punt exacte en el cercador públic) per protegir la reputació del negoci, i els
-          fitxers financers confidencials estan sota una passarel·la de signatura d'NDA.
+          <strong>Nota de diseño:</strong> En la plataforma final, la ubicación se muestra siempre por <strong>zona
+            aproximada</strong> (nunca el punto exacto en el buscador público) para proteger la reputación del negocio, y los
+          archivos financieros confidenciales están bajo una pasarela de firma de NDA.
         </blockquote>
       </div>
     </section>
@@ -1136,27 +1167,25 @@
 
       <div class="card pad">
         <div class="mockGrid">
-          <!-- Reemplaza con tus PNG en assets/mockups/ -->
-          <div class="mock" data-full="assets/mockups/app-home-real.png" aria-label="Mockup App Home">
-            <div class="mockLabel">App · Inicio (Real)</div>
-            <img src="assets/mockups/app-home-real.png" alt="Mockup de la pantalla de inicio real" />
+          <!-- Nuevos PNG en assets/mockups/ -->
+          <div class="mock" data-full="assets/mockups/final-app-home.png" aria-label="Mockup App Inicio">
+            <div class="mockLabel">App · Inicio</div>
+            <img src="assets/mockups/final-app-home.png" alt="Mockup de la pantalla de inicio de la aplicación móvil" />
           </div>
 
-          <div class="mock" data-full="assets/mockups/app-page-dark-real.png" aria-label="Mockup App Perfil">
-            <div class="mockLabel">App · Perfil (Fosc)</div>
-            <img src="assets/mockups/app-page-dark-real.png"
-              alt="Mockup de la pantalla del perfil del usuario en fosc" />
+          <div class="mock" data-full="assets/mockups/final-app-login.png" aria-label="Mockup App Login">
+            <div class="mockLabel">App · Acceso</div>
+            <img src="assets/mockups/final-app-login.png" alt="Mockup de la pantalla de acceso de la aplicación" />
           </div>
 
-          <div class="mock" data-full="assets/mockups/app-page-light-real.png" aria-label="Mockup App Perfil Light">
-            <div class="mockLabel">App · Perfil (Clar)</div>
-            <img src="assets/mockups/app-page-light-real.png"
-              alt="Mockup de la pantalla del perfil del usuario en clar" />
+          <div class="mock" data-full="assets/mockups/final-app-mentoring.png" aria-label="Mockup App Mentoring">
+            <div class="mockLabel">App · Mentoring</div>
+            <img src="assets/mockups/final-app-mentoring.png" alt="Mockup de la sección de mentoring de la aplicación" />
           </div>
 
           <div class="mock" data-full="assets/mockups/web-home-real.png" aria-label="Mockup Web Home">
             <div class="mockLabel">Web · Inicio (Split)</div>
-            <img src="assets/mockups/web-home-real.png" alt="Mockup de la web en MacBook Pro con modo clar i fosc" />
+            <img src="assets/mockups/web-home-real.png" alt="Mockup de la web en MacBook Pro con modo claro y oscuro" />
           </div>
         </div>
       </div>
@@ -1174,68 +1203,69 @@
           <pre class="mermaid">
 classDiagram
     class Usuario {
+        +List roles
         +String fullName
         +String email
-        +String password
-        +String role
         +String location
         +String bio
-        +int yearsOfExperience
-        +List sectorsOfInterest
+        +String cv
         +List preferredRegions
-        +List transitionPreferences
+        +List preferredSectors
+        +boolean proActive
+        +int publicationCredits
     }
 
-    class Oportunidad {
-        +String title
-        +String sector
+    class Oferta {
         +String region
-        +String cityApprox
-        +int businessAgeYears
+        +String sector
+        +String revenueRange
+        +int creationYear
         +String employeeRange
-        +String descriptionShort
-        +String descriptionExtended
-        +String transitionType
-        +String status
-        +String visibilityLevel
+        +String companyDescription
+        +String extendedDescription
+        +int detailViewCount
     }
 
-    class SolicitudAcceso {
+    class Solicitud {
+        +String status
         +String message
-        +String status
+        +String bio
+        +String professionalBackground
+        +double availableCapital
+        +boolean ndaAccepted
+        +String cvKey
+        +IResultadoIa resultadoIa
     }
 
-    class Conversacion {
-        +boolean isActive
+    class Chat {
+        +String status
+        +boolean isReadOnly
+        +boolean closedByOwner
+        +boolean closedByInterested
     }
 
     class Mensaje {
         +String content
-        +DateTime sentAt
-        +DateTime readAt
+        +String messageType
+        +String s3Key
+        +String fileName
     }
 
-    class Documento {
-        +String title
-        +String description
-        +String documentType
-        +String fileUrl
-        +String visibility
-    }
-
-    class Transicion {
-        +String currentStage
-        +String notes
+    class Rating {
+        +int score
+        +String comment
+        +String ratedRole
     }
 
     %% Relaciones de cardinalidad y lógica
-    Usuario "1" --> "*" Oportunidad : crea (owner)
-    Oportunidad "1" --> "*" SolicitudAcceso : recibe
-    Usuario "1" --> "*" SolicitudAcceso : solicita (interested)
+    Usuario "1" --> "*" Oferta : crea (owner)
+    Oferta "1" --> "*" Solicitud : recibe
+    Usuario "1" --> "*" Solicitud : solicita (interested)
+    Chat "*" <-- "1" Oferta : asociado
+    Chat "1" --> "*" Mensaje : contiene
     Usuario "1" --> "*" Mensaje : envía (sender)
-    Oportunidad "1" *-- "*" Documento : posee
-    Oportunidad "1" -- "*" Transicion : modela flujo
-    Usuario "1" -- "*" Transicion : participa
+    Chat "1" --> "0..2" Rating : recibe
+    Usuario "1" --> "*" Rating : califica/recibe
           </pre>
         </div>
       </div>
@@ -1243,40 +1273,39 @@ classDiagram
       <div class="card pad" style="margin-top: 24px;">
         <div class="story">
           <p>
-            Continuem avançant en el disseny de <strong>Relevo</strong>. Després de definir els prototips i fluxos
-            inicials, ens hem centrat en l'estructura del model de dades: la base del nostre ecosistema confidencial.
+            Seguimos avanzando en el diseño de <strong>Relevo</strong>. Después de definir los prototipos y flujos
+            iniciales, nos hemos centrado en la estructura del modelo de datos: la base de nuestro ecosistema confidencial.
           </p>
 
           <p>
-            Per a un projecte on la confidencialitat és la clau, tenir un model de domini flexible i robust és
+            Para un proyecto donde la confidencialidad es la clave, tener un modelo de dominio flexible y robusto es
             imprescindible:
           </p>
 
           <h4
             style="color: var(--brand2); margin: 28px 0 10px; font-size: 16.5px; text-transform: uppercase; letter-spacing: 0.5px;">
-            1. Els Pilars: Usuari Únic i Oportunitats</h4>
-          <p style="margin-bottom: 10px;">En comptes de separar físicament els rols en "Propietari" i "Successor", hem
-            optat per una entitat <code>Usuario</code> unificada que pot actuar en ambdós costats del marketplace.
-            D'altra banda, <code>Oportunidad</code> emmagatzema informació del negoci utilitzant el camp
-            <code>cityApprox</code> per ocultar adreces exactes en cerques públiques.
+            1. Los Pilares: Usuario Único y Ofertas</h4>
+          <p style="margin-bottom: 10px;">En vez de separar físicamente los roles en "Propietario" y "Sucesor", hemos
+            optado por una entidad <code>Usuario</code> unificada que puede actuar en ambos lados del marketplace.
+            Por otra parte, la <code>Oferta</code> almacena información del negocio utilizando campos aproximados como
+            la región para ocultar ubicaciones exactas en búsquedas públicas.
           </p>
 
           <h4
             style="color: var(--brand2); margin: 28px 0 10px; font-size: 16.5px; text-transform: uppercase; letter-spacing: 0.5px;">
-            2. Mur de Confiança: Sol·licituds d'Accés</h4>
+            2. Muro de Confianza: Solicitudes de Acceso</h4>
           <p>
-            Un usuari interessat no pot veure les dades financeres ni xatejar directament. Ha d'enviar una
-            <code>SolicitudAcceso</code>. Fins que el propietari no l'avalua i l'accepta, no es desbloqueja el canal de
-            negociació ni la documentació.
+            Un usuario interesado no puede ver los datos financieros detallados ni chatear directamente. Debe enviar una
+            <code>Solicitud</code>. Hasta que el propietario no la evalúa y la acepta (aprobando el acuerdo de confidencialidad o NDA), no se desbloquea el canal de
+            negociación ni la documentación.
           </p>
 
           <h4
             style="color: var(--brand2); margin: 28px 0 10px; font-size: 16.5px; text-transform: uppercase; letter-spacing: 0.5px;">
-            3. Negociació i Documentació (VDR)</h4>
+            3. Negociación y Valoraciones (VDR)</h4>
           <p>
-            Un cop acceptada la sol·licitud, es genera una <code>Conversacion</code>. Addicionalment, l'oferta posseeix
-            fitxers <code>Documento</code> amb nivell de visibilitat configurat: només accessibles en signar l'acord de
-            confidencialitat (NDA).
+            Una vez aceptada la solicitud, se genera un <code>Chat</code> interactivo que soporta mensajería multimedia (audios y archivos). 
+            Los usuarios pueden interactuar confidencialmente, marcar el proceso como finalizado y realizar una <code>Valoración (Rating)</code> mutua para calificar la experiencia de trato.
           </p>
         </div>
       </div>
@@ -1285,8 +1314,8 @@ classDiagram
     <!-- TECNOLOGIES -->
     <section id="tecnologies">
       <div class="sectionTitle">
-        <h2>Pila Tecnològica Completa</h2>
-        <p>Frameworks i llibreries principals utilitzats al backend, la WebApp i l’app mòbil.</p>
+        <h2>Pila Tecnológica Completa</h2>
+        <p>Frameworks y librerías principales utilizados en el backend, la WebApp y la app móvil.</p>
       </div>
 
       <div class="techSectionGrid">
@@ -1300,46 +1329,46 @@ classDiagram
 
           <ul class="techCardList">
             <li><span class="techBullet">›</span>
-              <div><code>express</code><span class="desc">Framework principal per exposar la REST API i gestionar rutes
+              <div><code>express</code><span class="desc">Framework principal para exponer la REST API y gestionar rutas
                   HTTP.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>typescript</code><span class="desc">Tipatge estàtic per reduir errors i estructurar millor el
-                  codi del servidor.</span></div>
+              <div><code>typescript</code><span class="desc">Tipado estático para reducir errores y estructurar mejor el
+                  código del servidor.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>mongoose</code><span class="desc">Modelatge d’esquemes i accés a la base de dades
+              <div><code>mongoose</code><span class="desc">Modelado de esquemas y acceso a la base de datos
                   MongoDB.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>jsonwebtoken</code><span class="desc">Autenticació mitjançant tokens JWT.</span></div>
+              <div><code>jsonwebtoken</code><span class="desc">Autenticación mediante tokens JWT.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>bcryptjs</code><span class="desc">Hash segur de contrasenyes abans de guardar-les a la base de
-                  dades.</span></div>
+              <div><code>bcryptjs</code><span class="desc">Hash seguro de contraseñas antes de guardarlas en la base de
+                  datos.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>zod</code><span class="desc">Validació de dades d’entrada abans d’arribar als
-                  controladors.</span></div>
+              <div><code>zod</code><span class="desc">Validación de datos de entrada antes de llegar a los
+                  controladores.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>socket.io</code><span class="desc">Comunicació en temps real per funcionalitats com el
-                  xat.</span></div>
+              <div><code>socket.io</code><span class="desc">Comunicación en tiempo real para funcionalidades como el
+                  chat.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>firebase-admin</code><span class="desc">Integració amb Firebase Cloud Messaging per enviar
-                  notificacions push.</span></div>
+              <div><code>firebase-admin</code><span class="desc">Integración con Firebase Cloud Messaging para enviar
+                  notificaciones push.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>@aws-sdk/client-s3</code><span class="desc">Gestió d’arxius a AWS S3, com l’adjunció de CVs en
-                  sol·licituds d’ofertes.</span></div>
+              <div><code>@aws-sdk/client-s3</code><span class="desc">Gestión de archivos en AWS S3, como la adjunción de CVs en
+                  solicitudes de ofertas.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>swagger-ui-express</code><span class="desc">Documentació interactiva de la REST API amb
+              <div><code>swagger-ui-express</code><span class="desc">Documentación interactiva de la REST API con
                   Swagger/OpenAPI.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>vitest</code><span class="desc">Execució de tests del backend.</span></div>
+              <div><code>vitest</code><span class="desc">Ejecución de tests del backend.</span></div>
             </li>
           </ul>
         </div>
@@ -1354,43 +1383,43 @@ classDiagram
           <ul class="techCardList angular">
             <li><span class="techBullet">›</span>
               <div><code>@angular/core</code><span class="desc">Framework principal de la WebApp basada en
-                  components.</span></div>
+                  componentes.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>@angular/common/http</code><span class="desc">HttpClient per consumir la REST API del
+              <div><code>@angular/common/http</code><span class="desc">HttpClient para consumir la REST API del
                   backend.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>@angular/material</code><span class="desc">Components visuals per formularis, taules, botons i
-                  interfície responsive.</span></div>
+              <div><code>@angular/material</code><span class="desc">Componentes visuales para formularios, tablas, botones e
+                  interfaz responsive.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>rxjs</code><span class="desc">Gestió de fluxos asíncrons, peticions HTTP i estat
-                  reactiu.</span></div>
+              <div><code>rxjs</code><span class="desc">Gestión de flujos asíncronos, peticiones HTTP y estado
+                  reactivo.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>socket.io-client</code><span class="desc">Connexió del client web amb els serveis en temps real
+              <div><code>socket.io-client</code><span class="desc">Conexión del client web con los servicios en tiempo real
                   del backend.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>firebase/app</code><span class="desc">Integració amb Firebase Cloud Messaging per rebre
-                  notificacions push a la web.</span></div>
+              <div><code>firebase/app</code><span class="desc">Integración con Firebase Cloud Messaging para recibir
+                  notificaciones push en la web.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>@ngx-translate/core</code><span class="desc">Internacionalització de la interfície en diferents
-                  idiomes.</span></div>
+              <div><code>@ngx-translate/core</code><span class="desc">Internacionalización de la interfaz en diferentes
+                  idiomas.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>ngx-markdown</code><span class="desc">Renderització dels continguts de mentoring servits en
+              <div><code>ngx-markdown</code><span class="desc">Renderización de los contenidos de mentoring servidos en
                   format Markdown.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>Matomo</code><span class="desc">Analítica d’ús i visualització de dades de comportament dels
-                  usuaris.</span></div>
+              <div><code>Matomo</code><span class="desc">Analítica de uso y visualización de datos de comportamiento de los
+                  usuarios.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>eslint</code> + <code>prettier</code><span class="desc">Qualitat, consistència i format del
-                  codi.</span></div>
+              <div><code>eslint</code> + <code>prettier</code><span class="desc">Calidad, consistencia y formato del
+                  código.</span></div>
             </li>
           </ul>
         </div>
@@ -1404,43 +1433,43 @@ classDiagram
 
           <ul class="techCardList flutter">
             <li><span class="techBullet">›</span>
-              <div><code>Flutter</code> + <code>Dart</code><span class="desc">Desenvolupament multiplataforma per
-                  Android i iOS.</span></div>
+              <div><code>Flutter</code> + <code>Dart</code><span class="desc">Desarrollo multiplataforma para
+                  Android e iOS.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>flutter_riverpod</code><span class="desc">Gestió d’estat reactiva i previsible dins
-                  l’aplicació.</span></div>
+              <div><code>flutter_riverpod</code><span class="desc">Gestión de estado reactiva y previsible dentro de
+                  la aplicación.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>riverpod_generator</code><span class="desc">Generació de codi per reduir errors i millorar
-                  mantenibilitat.</span></div>
+              <div><code>riverpod_generator</code><span class="desc">Generación de código para reducir errores y mejorar
+                  mantenibilidad.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>dio</code><span class="desc">Client HTTP avançat per consumir la REST API i gestionar
+              <div><code>dio</code><span class="desc">Cliente HTTP avanzado para consumir la REST API y gestionar
                   tokens.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>flutter_secure_storage</code><span class="desc">Emmagatzematge segur del token d’accés al
-                  dispositiu.</span></div>
+              <div><code>flutter_secure_storage</code><span class="desc">Almacenamiento seguro del token de acceso en el
+                  dispositivo.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>shared_preferences</code><span class="desc">Persistència local de preferències de
-                  l’usuari.</span></div>
+              <div><code>shared_preferences</code><span class="desc">Persistencia local de preferencias del
+                  usuario.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>flutter_markdown</code><span class="desc">Visualització dels continguts de mentoring en format
+              <div><code>flutter_markdown</code><span class="desc">Visualización de los contenidos de mentoring en formato
                   Markdown.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>file_picker</code><span class="desc">Selecció de fitxers, com el CV adjunt en sol·licituds
-                  d’ofertes.</span></div>
+              <div><code>file_picker</code><span class="desc">Selección de archivos, como el CV adjunto en solicitudes
+                  de ofertas.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>intl</code> + <code>l10n</code><span class="desc">Traducció nativa multiidioma.</span></div>
+              <div><code>intl</code> + <code>l10n</code><span class="desc">Traducción nativa multiidioma.</span></div>
             </li>
             <li><span class="techBullet">›</span>
-              <div><code>shimmer</code><span class="desc">Skeletons de càrrega per millorar l’experiència
-                  d’usuari.</span></div>
+              <div><code>shimmer</code><span class="desc">Skeletons de carga para mejorar la experiencia de
+                  usuario.</span></div>
             </li>
           </ul>
         </div>
@@ -1451,8 +1480,8 @@ classDiagram
     <!-- ROADMAP / SPRINTS -->
     <section id="sprints">
       <div class="sectionTitle">
-        <h2>Històric de Desenvolupament</h2>
-        <p>Evolució tècnica estructurada per sprints de treball i la fase final del projecte.</p>
+        <h2>Historial de Desarrollo</h2>
+        <p>Evolución técnica estructurada por sprints de trabajo y la fase final del proyecto.</p>
       </div>
 
       <div class="timeline">
@@ -1464,17 +1493,17 @@ classDiagram
           </div>
           <div class="timelineContent">
             <div class="timelineHeader">
-              <h4>Sprint 0 — Ciments del Servidor</h4>
-              <span class="timelineTag">Completat</span>
+              <h4>Sprint 0 — Cimientos del Servidor</h4>
+              <span class="timelineTag">Completado</span>
             </div>
             <div class="timelineDetails">
               <div class="timelineCol">
                 <h5>Backend (`backend-relevo`)</h5>
                 <ul>
-                  <li>Configuració de l'entorn de desenvolupament TypeScript i Node.js.</li>
-                  <li>Creació del servidor base amb Express (`src/index.ts` i `src/app.ts`).</li>
-                  <li>Connexió i configuració del pool de connexions a MongoDB Atlas (`src/database.ts`).</li>
-                  <li>Implementació de middleware base: gestió centralitzada d'errors i formatador de respostes JSON.
+                  <li>Configuración del entorno de desarrollo TypeScript y Node.js.</li>
+                  <li>Creación del servidor base con Express (`src/index.ts` y `src/app.ts`).</li>
+                  <li>Conexión y configuración del pool de conexiones a MongoDB Atlas (`src/database.ts`).</li>
+                  <li>Implementación de middleware base: gestión centralizada de errores y formateador de respuestas JSON.
                   </li>
                 </ul>
               </div>
@@ -1489,26 +1518,26 @@ classDiagram
           </div>
           <div class="timelineContent">
             <div class="timelineHeader">
-              <h4>Sprint 1 — Arquitectura de Dades i Backoffice V1</h4>
-              <span class="timelineTag">Completat</span>
+              <h4>Sprint 1 — Arquitectura de Datos y Backoffice V1</h4>
+              <span class="timelineTag">Completado</span>
             </div>
             <div class="timelineDetails">
               <div class="timelineCol">
                 <h5>Backend (`backend-relevo`)</h5>
                 <ul>
-                  <li>Desenvolupament dels primers esquemes i models Mongoose: `Usuario`, `Oportunidad` i
+                  <li>Desarrollo de los primeros esquemas y modelos Mongoose: `Usuario`, `Oportunidad` y
                     `SolicitudAcceso`.</li>
-                  <li>Integració d'OpenAPI 3.0 via `swagger-jsdoc` per autogenerar documentació.</li>
-                  <li>Validació estricta de paràmetres de rutes d'entrada utilitzant la llibreria Zod.</li>
+                  <li>Integración de OpenAPI 3.0 vía `swagger-jsdoc` para autogenerar documentación.</li>
+                  <li>Validación estricta de parámetros de rutas de entrada utilizando la librería Zod.</li>
                 </ul>
               </div>
               <div class="timelineCol">
                 <h5>Frontend Web (`frontend-relevo`)</h5>
                 <ul>
-                  <li>Creació de l'estructura modular d'Angular 21 (`core/`, `pages/`, `shared/`).</li>
-                  <li>Disseny i codificació del Backoffice de gestió administrativa V1.</li>
-                  <li>Lògica de Soft Delete (esborrat lògic per preservar la traçabilitat de dades).</li>
-                  <li>Selector múltiple de dades (Multi-select) per a sectors i regions en formularis.</li>
+                  <li>Creación de la estructura modular de Angular 21 (`core/`, `pages/`, `shared/`).</li>
+                  <li>Diseño y codificación del Backoffice de gestión administrativa V1.</li>
+                  <li>Lógica de Soft Delete (borrado lógico para preservar la trazabilidad de datos).</li>
+                  <li>Selector múltiple de datos (Multi-select) para sectores y regiones en formularios.</li>
                 </ul>
               </div>
             </div>
@@ -1522,25 +1551,25 @@ classDiagram
           </div>
           <div class="timelineContent">
             <div class="timelineHeader">
-              <h4>Sprint 2 — Seguretat, JWT i Perfils</h4>
-              <span class="timelineTag">Completat</span>
+              <h4>Sprint 2 — Seguridad, JWT y Perfiles</h4>
+              <span class="timelineTag">Completado</span>
             </div>
             <div class="timelineDetails">
               <div class="timelineCol">
                 <h5>Backend (`backend-relevo`)</h5>
                 <ul>
-                  <li>Integració d'autenticació basada en tokens JWT amb middleware de seguretat `auth.ts`.</li>
-                  <li>Xifrat de claus de pas dels usuaris mitjançant salat a `bcryptjs`.</li>
-                  <li>Controladors i rutes completes de registre i login (`authController.ts` i `authRoutes.ts`).</li>
-                  <li>Mecanismes de control de recursos a nivell de base de dades (autorització granular).</li>
+                  <li>Integración de autenticación basada en tokens JWT con middleware de seguridad `auth.ts`.</li>
+                  <li>Cifrado de contraseñas de los usuarios mediante salting en `bcryptjs`.</li>
+                  <li>Controladores y rutas completas de registro y login (`authController.ts` y `authRoutes.ts`).</li>
+                  <li>Mecanismos de control de recursos a nivel de base de datos (autorización granular).</li>
                 </ul>
               </div>
               <div class="timelineCol">
                 <h5>Frontend Web (`frontend-relevo`)</h5>
                 <ul>
-                  <li>Implementació de formularis de Login i Registre amb validacions reactives d'estat.</li>
-                  <li>Integració de l'interceptor `auth.interceptor.ts` per injectar automàticament el JWT.</li>
-                  <li>Gestió del perfil de l'usuari amb formularis d'interessos i detalls de transició.</li>
+                  <li>Implementación de formularios de Login y Registro con validaciones reactivas de estado.</li>
+                  <li>Integración del interceptor `auth.interceptor.ts` para inyectar automáticamente el JWT.</li>
+                  <li>Gestión del perfil del usuario con formularios de intereses y detalles de transición.</li>
                 </ul>
               </div>
             </div>
@@ -1554,26 +1583,26 @@ classDiagram
           </div>
           <div class="timelineContent">
             <div class="timelineHeader">
-              <h4>Sprint 3 — Control de Qualitat, E2E i Desplegament</h4>
-              <span class="timelineTag">Completat</span>
+              <h4>Sprint 3 — Control de Calidad, E2E y Despliegue</h4>
+              <span class="timelineTag">Completado</span>
             </div>
             <div class="timelineDetails">
               <div class="timelineCol">
-                <h5>Qualitat de Programari</h5>
+                <h5>Calidad de Software</h5>
                 <ul>
-                  <li>Integració de suite de proves automatitzades i ràpides amb Vitest i jsdom.</li>
-                  <li>Configuració de l'eina Husky per a pre-commit i pre-push hooks (automatització de qualitat).</li>
-                  <li>Polítiques estrictes de format i anàlisi de codi amb ESLint i Prettier a backend i frontend.</li>
+                  <li>Integración de suite de pruebas automatizadas y rápidas con Vitest y jsdom.</li>
+                  <li>Configuración de la herramienta Husky para pre-commit y pre-push hooks (automatización de calidad).</li>
+                  <li>Políticas estrictas de formato y análisis de código con ESLint y Prettier en backend y frontend.</li>
                 </ul>
               </div>
               <div class="timelineCol">
                 <h5>DevOps & Deployment</h5>
                 <ul>
-                  <li>Escriptura de fitxers `Dockerfile` per a la compilació i muntatge dels contenidors del backend i
+                  <li>Escritura de archivos `Dockerfile` para la compilación y montaje de los contenedores del backend y
                     frontend.</li>
-                  <li>Creació d'un entorn unificat amb `docker-compose.yml` per aixecar base de dades, backend i
-                    servidors.</li>
-                  <li>Integració de desplegament de producció i pujada d'imatges a Docker Hub.</li>
+                  <li>Creación de un entorno unificado con `docker-compose.yml` para levantar base de datos, backend y
+                    servidores.</li>
+                  <li>Integración de despliegue de producción y subida de imágenes a Docker Hub.</li>
                 </ul>
               </div>
             </div>
@@ -1587,65 +1616,85 @@ classDiagram
           </div>
           <div class="timelineContent">
             <div class="timelineHeader">
-              <h4>Sprint Final — Mentoring, Mapes, Notificacions Push i Analítica</h4>
-              <span class="timelineTag">Sprint Actiu (Projecte Final)</span>
+              <h4>Sprint Final — Mentoring, Mapas, Notificaciones Push, Analítica y Cerrar Ciclo</h4>
+              <span class="timelineTag">Sprint Activo (Proyecto Final)</span>
             </div>
             <div class="timelineDetails">
 
               <div class="timelineCol">
-                <h5>Sistema de Mentoring</h5>
+                <h5>Sistema de Mentoring y Onboarding</h5>
                 <ul>
-                  <li><b>Mentoring Multilingüe:</b> Implementació d'un sistema complet de continguts de mentoring per a
-                    buyers i sellers.</li>
+                  <li><b>Mentoring Multilingüe:</b> Implementación de un sistema completo de contenidos de mentoring para
+                    buyers y sellers.</li>
 
-                  <li><b>Contingut en Markdown:</b> Tots els mòduls de formació es gestionen mitjançant fitxers Markdown
-                    allotjats al backend i servits dinàmicament al frontend web i a l'aplicació mòbil.</li>
+                  <li><b>Contenido en Markdown:</b> Todos los módulos de formación se gestionan mediante archivos Markdown
+                    alojados en el backend y servidos dinámicamente.</li>
 
-                  <li><b>Internacionalització:</b> Contingut disponible en Català, Castellà i Anglès amb càrrega
-                    automàtica segons l'idioma seleccionat per l'usuari.</li>
+                  <li><b>Internacionalización:</b> Contenido disponible en Catalán, Castellano e Inglés con carga
+                    automática según el idioma seleccionado por el usuario.</li>
+
+                  <li><b>Onboarding de usuario:</b> Proceso guiado al registrarse y botón de ayuda interactivo para
+                    entender fácilmente el funcionamiento y las características de la plataforma.</li>
                 </ul>
               </div>
 
               <div class="timelineCol">
-                <h5>Mapes i Geolocalització</h5>
+                <h5>Mapas, Geolocalización y Filtros</h5>
                 <ul>
-                  <li><b>Visualització d'ofertes en mapa:</b> Integració de mapes interactius per mostrar la ubicació
-                    aproximada de les oportunitats publicades.</li>
+                  <li><b>Visualización de ofertas en mapa:</b> Integración de mapas interactivos para mostrar la ubicación
+                    aproximada de las oportunidades publicadas.</li>
 
-                  <li><b>Privacitat geogràfica:</b> La plataforma mostra únicament zones aproximades, preservant
-                    l'anonimat dels negocis fins a fases avançades de negociació.</li>
+                  <li><b>Privacidad geográfica:</b> La plataforma muestra únicamente zonas aproximadas, preservando
+                    el anonimato de los negocios hasta fases avanzadas de negociación.</li>
 
-                  <li><b>Filtrat espacial:</b> Els usuaris poden localitzar oportunitats segons la seva zona d'interès
+                  <li><b>Filtrado espacial:</b> Los usuarios pueden localizar oportunidades según su zona de interés
                     de manera visual.</li>
+
+                  <li><b>Filtrado avanzado por plan:</b> Búsqueda de ofertas con filtros básicos o avanzados según la
+                    suscripción para encontrar oportunidades de forma más precisa.</li>
                 </ul>
               </div>
 
               <div class="timelineCol">
-                <h5>Notificacions Push i Analítica</h5>
+                <h5>Notificaciones, Analítica y Suscripciones</h5>
                 <ul>
-                  <li><b>Firebase Cloud Messaging (FCM):</b> Integració completa de notificacions push utilitzant
-                    Firebase Cloud Messaging i Firebase Admin SDK.</li>
+                  <li><b>Firebase Cloud Messaging (FCM):</b> Integración completa de notificaciones push utilizando
+                    Firebase Cloud Messaging y Firebase Admin SDK.</li>
 
-                  <li><b>Notificacions en temps real:</b> Enviament d'avisos davant noves oportunitats, actualitzacions
-                    de sol·licituds i esdeveniments rellevants de la plataforma.</li>
+                  <li><b>Notificaciones en tiempo real:</b> Envío de avisos ante nuevas oportunidades, actualizaciones
+                    de solicitudes y eventos relevantes.</li>
 
-                  <li><b>Matomo Analytics:</b> Incorporació de la plataforma d'analítica Matomo per obtenir
-                    estadístiques d'ús, seguiment de navegació i mètriques de comportament dels usuaris preservant la
-                    privacitat.</li>
+                  <li><b>Matomo Analytics:</b> Incorporación de la plataforma de analítica Matomo para obtener
+                    estadísticas de uso de forma privada.</li>
+
+                  <li><b>Planes Gratuito y Premium:</b> Distinción de acceso a las funcionalidades del sistema en
+                    función de la suscripción del usuario.</li>
+
+                  <li><b>Estadísticas de ofertas:</b> Panel privado de estadísticas para cada oferta que permite al
+                    propietario medir su rendimiento y optimizar sus decisiones.</li>
                 </ul>
               </div>
 
               <div class="timelineCol">
-                <h5>Gestió Documental i CVs</h5>
+                <h5>Gestión Documental, Chat y Cierre</h5>
                 <ul>
-                  <li><b>AWS S3 Presigned URLs:</b> Integració d'emmagatzematge segur a AWS S3 mitjançant URLs temporals
-                    signades.</li>
+                  <li><b>AWS S3 Presigned URLs:</b> Integración de almacenamiento seguro en AWS S3 mediante URLs temporales
+                    firmadas.</li>
 
-                  <li><b>Adjunció de currículums:</b> Els candidats poden adjuntar el seu CV durant el procés de
-                    sol·licitud d'una oportunitat empresarial.</li>
+                  <li><b>Adjunción de currículums:</b> Los candidatos pueden adjuntar su CV durante el proceso de
+                    solicitud de una oportunidad empresarial.</li>
 
-                  <li><b>Accés segur als fitxers:</b> Les URLs signades garanteixen que els documents només siguin
-                    accessibles durant un període limitat i per usuaris autoritzats.</li>
+                  <li><b>Acceso seguro a los archivos:</b> Las URLs firmadas garantizan que los documentos solo sean
+                    accessibles a usuarios autorizados.</li>
+
+                  <li><b>Mensajería multimedia:</b> Envío de mensajes de audio y archivos adjuntos en el chat para una
+                    comunicación más completa.</li>
+
+                  <li><b>Finalización de compraventas:</b> Opción de marcar un proceso de negociación como finalizado
+                    para poder continuar formalmente fuera de la plataforma.</li>
+
+                  <li><b>Valoraciones cruzadas:</b> Sistema de feedback que permite valorar el trato tras finalizar el
+                    proceso y visualizar las opiniones recibidas.</li>
                 </ul>
               </div>
 
@@ -1659,46 +1708,46 @@ classDiagram
     <!-- CONCIENCIA DIGITAL -->
     <section id="conciencia">
       <div class="sectionTitle">
-        <h2>Consciència Digital i Disseny Ètic</h2>
-        <p>Valors afegits al producte per a garantir la inclusió social i la sostenibilitat.</p>
+        <h2>Conciencia Digital y Diseño Ético</h2>
+        <p>Valores añadidos al producto para garantizar la inclusión social y la sostenibilidad.</p>
       </div>
 
       <div class="card pad">
         <div class="story">
           <p>
-            Relevo resol un problema social real: el tancament de negocis rendibles per falta de relleu. Hem dissenyat
-            la plataforma sota uns principis ètics molt definits:
+            Relevo resuelve un problema social real: el cierre de negocios rentables por falta de relevo. Hemos diseñado
+            la plataforma bajo unos principios éticos muy definidos:
           </p>
           <ul style="padding-left: 20px; color: var(--muted); line-height: 1.7;">
-            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">UX Inclusiva per a Sèniors:</strong>
-              Donat que els propietaris de negocis solen tenir perfils sèniors, hem desenvolupat menús guiats, textos
-              clars i una interfície lliure de frustració (sense bretxa digital).</li>
-            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">Accessibilitat i
-                Multilingüisme:</strong> Sistema de traduccions centralitzat (`@ngx-translate/core` a web i fitxers
-              `.arb` a Flutter) que permet l'ús nadiu en Català, Castellà i Anglès. Suport de temes fosc i clar integrat
-              per adaptar-se a problemes de salut visual.</li>
-            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">Transparència de Dades i Zero Dark
-                Patterns:</strong> Els propietaris tenen control total de quins usuaris tenen dret a veure la
-              documentació i quan retirar-los-hi l'accés. L'NDA digital té validesa legal i s'explica amb llenguatge
-              planer.</li>
-            <li><strong style="color: var(--text);">Paperless i Sostenibilitat:</strong> L'esborrany de contractes,
-              l'intercanvi de documentació financera i la signatura de confidencialitat es fan íntegraments en format
-              digital, estalviant paper i desplaçaments innecessaris.</li>
+            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">UX Inclusiva para Seniors:</strong>
+              Dado que los propietarios de negocios suelen tener perfiles seniors, hemos desarrollado menús guiados, textos
+              claros y una interfaz libre de frustración (sin brecha digital).</li>
+            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">Accesibilidad y
+                Multilingüismo:</strong> Sistema de traducciones centralizado (`@ngx-translate/core` en web y archivos
+              `.arb` en Flutter) que permite el uso nativo en Catalán, Castellano e Inglés. Soporte de temas oscuro y claro integrado
+              para adaptarse a problemas de salud visual.</li>
+            <li style="margin-bottom: 12px;"><strong style="color: var(--text);">Transparencia de Datos y Zero Dark
+                Patterns:</strong> Los propietarios tienen control total de qué usuarios tienen derecho a ver la
+              documentación y cuándo retirárselo. El NDA digital tiene validez legal y se explica con lenguaje
+              sencillo.</li>
+            <li><strong style="color: var(--text);">Paperless y Sostenibilidad:</strong> El borrador de contratos,
+              el intercambio de documentación financiera y la firma de confidencialidad se realizan íntegramente en formato
+              digital, ahorrando papel y desplazamientos innecesarios.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> Relevo — Projecte universitari d'Enginyeria d'Aplicacions (Grau en Enginyeria
-      Informàtica). Dissenyat per a mostrar concepte, arquitectura de sistemes i codi real.
+      © <span id="year"></span> Relevo — Proyecto universitario de Ingeniería de Aplicaciones (Grado en Ingeniería
+      Informática). Diseñado para mostrar concepto, arquitectura de sistemas y código real.
     </footer>
   </div>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightboxInner" role="dialog" aria-modal="true" aria-label="Vista ampliada">
-      <button class="closeBtn" id="closeBtn" aria-label="Tancar">✕</button>
+      <button class="closeBtn" id="closeBtn" aria-label="Cerrar">✕</button>
       <img id="lightboxImg" src="" alt="Imatge ampliada" />
     </div>
   </div>
